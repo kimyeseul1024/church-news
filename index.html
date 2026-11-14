@@ -88,13 +88,18 @@
       cursor: pointer;
       color: #fff;
       text-align: center;
+      text-decoration: none;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      display: block;
     }
     .btn-primary { 
       background: linear-gradient(135deg, #3b82f6, #1d4ed8); 
     }
     .btn-secondary { 
       background: linear-gradient(135deg, #10b981, #059669); 
+    }
+    .btn-live { 
+      background: linear-gradient(135deg, #ef4444, #dc2626); 
     }
     .checklist {
       background: #fffbeb;
@@ -186,61 +191,19 @@
     <div class="info-box">
       <strong>📢 주요 안내 사항</strong>
       <ul>
-        <li>• 1. 추수감사주일: 한 해 동안 받은 은혜를 생각하며 감사하는 시간을 가집시다.</li>
+        <li>• 1. 추수감사주일 감사로 나아갑니다.</li>
         <li>• 2. 하반기 제자훈련 (11/8~29 주일)</li>
-        <li>• 3. 전라어린이대회 (11/21 토, 광주은광교회) 출전하는 친구들 초등부 예배 후 모임이 있습니다.</li>
+        <li>• 3. 전라어린이대회 (11/21 토) 파이팅!</li>
       </ul>
     </div>
 
     <div class="btn-group">
+      <!-- 온라인 예배 바로가기 버튼 추가 -->
+      <a href="https://youtube.com/live/OFPXhMj8XaU?feature=share" target="_blank" class="btn btn-live">🔴 온라인 예배 참여하기</a>
       <button class="btn btn-primary" onclick="openModal('verseModal')">📖 외울말씀 확인하기</button>
       <button class="btn btn-secondary" onclick="openModal('quizModal')">✏️ 퀴즈 확인하기</button>
     </div>
 
     <div class="checklist">
       <h3>✅ 이번 주 미션 체크리스트</h3>
-      <label><input type="checkbox"> <span>성경책 가져오기</span></label>
-      <label><input type="checkbox"> <span>성경읽기 (5장 이상)</span></label>
-      <label><input type="checkbox"> <span>성경암송</span></label>
-    </div>
-
-    <footer>© 2026 yeseuly. All Rights Reserved.</footer>
-  </div>
-
-  <div id="verseModal" class="modal" onclick="closeOutside(event, 'verseModal')">
-    <div class="modal-content">
-      <div class="modal-header">
-        <strong>외울 말씀</strong>
-        <button class="close-btn" onclick="closeModal('verseModal')">닫기</button>
-      </div>
-      <img src="verse.jpg" alt="외울말씀 이미지">
-    </div>
-  </div>
-
-  <div id="quizModal" class="modal" onclick="closeOutside(event, 'quizModal')">
-    <div class="modal-content">
-      <div class="modal-header">
-        <strong>복습 퀴즈</strong>
-        <button class="close-btn" onclick="closeModal('quizModal')">닫기</button>
-      </div>
-      <img src="quiz01.png" alt="퀴즈 1">
-      <img src="quiz02.png" alt="퀴즈 2">
-    </div>
-  </div>
-
-  <script>
-    function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
-    }
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-    }
-    function closeOutside(event, id) {
-      if (event.target.id === id) {
-        closeModal(id);
-      }
-    }
-  </script>
-
-</body>
-</html>
+      <label><input type="checkbox"> <span>
