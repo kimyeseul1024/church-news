@@ -106,16 +106,16 @@
     .info-box li { margin-bottom: 12px; word-break: keep-all; line-height: 1.5; display: flex; align-items: flex-start;}
     .info-box li strong { margin-right: 6px; }
 
-    /* 🔲 가로로 나란히 배치된 버튼 그룹 스타일 */
+    /* 🔲 4개 버튼 가로 배치 스타일 */
     .btn-group {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       margin-bottom: 25px;
     }
     .btn {
       flex: 1;
-      padding: 16px 10px;
-      font-size: 14px;
+      padding: 14px 6px;
+      font-size: 13px;
       font-weight: 900;
       border: none;
       border-radius: 16px;
@@ -144,6 +144,7 @@
     .btn-primary { background: linear-gradient(135deg, #7c3aed, #4c1d95); }
     .btn-secondary { background: linear-gradient(135deg, #34d399, #059669); }
     .btn-accent { background: linear-gradient(135deg, #fbbf24, #d97706); }
+    .btn-info { background: linear-gradient(135deg, #38bdf8, #0284c7); }
 
     /* 📅 캘린더 아코디언 스타일 */
     .calendar-section {
@@ -248,8 +249,8 @@
       text-align: center;
       border-bottom: 1px solid #e2e8f0;
     }
-    .calendar-table th:first-child { color: #ef4444; } /* 주일 */
-    .calendar-table th:last-child { color: #3b82f6; }  /* 토요일 */
+    .calendar-table th:first-child { color: #ef4444; }
+    .calendar-table th:last-child { color: #3b82f6; }
 
     .calendar-table td {
       height: 62px;
@@ -269,7 +270,7 @@
     }
     .calendar-table tr td:first-child .day-num { color: #ef4444; }
     .calendar-table tr td:last-child .day-num { color: #3b82f6; }
-    .weekday-col { background: #fafaf9; } /* 월~목 합쳐진 칸 배경 */
+    .weekday-col { background: #fafaf9; }
 
     .cal-badge {
       font-size: 9px;
@@ -427,7 +428,7 @@
       </ul>
     </div>
 
-    <!-- 🔲 가로로 나란히 배치된 버튼 그룹 -->
+    <!-- 🔲 4개 버튼 가로 배치 그룹 -->
     <div class="btn-group">
       <button class="btn btn-primary" onclick="openModal('verseModal')">
         <span>📖</span> 외울 말씀 확인
@@ -436,7 +437,10 @@
         <span>✏️</span> 복습퀴즈 확인
       </button>
       <a href="https://notebooklm.link.google/NCNqHkn7f4xa" target="_blank" class="btn btn-accent">
-        <span>🔔</span> 11/29 성경골든벨 준비
+        <span>🔔</span> 11/29 골든벨
+      </a>
+      <a href="https://vimeo.com/827276579?su_via=got&signup=true" target="_blank" class="btn btn-info">
+        <span>🎬</span> 킹덤툰 44과
       </a>
     </div>
 
@@ -453,7 +457,7 @@
           <button class="cal-tab-btn" onclick="switchCal('dec')">🎄 12월 일정</button>
         </div>
 
-        <!-- 11월 캘린더 (월~목 합침) -->
+        <!-- 11월 캘린더 -->
         <div id="calNov" class="calendar-container active">
           <div class="calendar-header-title">2026년 11월 초등2부 일정</div>
           <table class="calendar-table">
@@ -505,7 +509,7 @@
           </div>
         </div>
 
-        <!-- 12월 캘린더 (월~목 합침) -->
+        <!-- 12월 캘린더 -->
         <div id="calDec" class="calendar-container">
           <div class="calendar-header-title">2026년 12월 초등2부 일정</div>
           <table class="calendar-table">
@@ -570,17 +574,26 @@
     <footer>© 2026 yeseuly. All Rights Reserved.</footer>
   </div>
 
-  <!-- 외울말씀 모달 -->
+  <!-- 외울말씀 모달 (이미지 + 챈트 + 따라쓰기) -->
   <div id="verseModal" class="modal" onclick="closeOutside(event, 'verseModal')">
     <div class="modal-content">
       <div class="modal-header">
-        <strong>📖 보고 따라 쓰기 연습장</strong>
+        <strong>📖 외울 말씀 & 챈트 연습장</strong>
         <button class="close-btn" onclick="closeModal('verseModal')">닫기 ✕</button>
       </div>
       
+      <!-- 1. 이미지 -->
       <img src="verse.jpg" alt="외울말씀 이미지">
 
-      <div style="margin-top: 15px; background: #faf5ff; padding: 20px; border-radius: 20px; border: 2px solid #e9d5ff;">
+      <!-- 2. 챈트 영상 링크 버튼 -->
+      <div style="margin-bottom: 15px;">
+        <a href="https://vimeo.com/777285262" target="_blank" style="display: block; width: 100%; background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; padding: 14px; border-radius: 15px; text-align: center; font-size: 16px; font-weight: 900; text-decoration: none; box-shadow: 0 8px 15px rgba(2, 132, 199, 0.3);">
+          🎵 신나는 챈트 영상 보러가기 ✨
+        </a>
+      </div>
+
+      <!-- 3. 따라쓰기 연습장 -->
+      <div style="background: #faf5ff; padding: 20px; border-radius: 20px; border: 2px solid #e9d5ff;">
         <label for="practiceInput" style="display: block; font-size: 15px; font-weight: 900; color: #581c87; margin-bottom: 12px;">
           ✍️ 위 말씀을 보고 아래 칸에 예쁘게 적어보세요!
         </label>
