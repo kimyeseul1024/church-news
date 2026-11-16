@@ -248,6 +248,7 @@
     .bg-green { background: #dcfce7; color: #16a34a; }
     .bg-purple { background: #ede9fe; color: #7c3aed; }
     .bg-blue { background: #e0f2fe; color: #0284c7; }
+    .bg-red { background: #fee2e2; color: #dc2626; }
 
     .schedule-summary {
       background: #f8fafc;
@@ -414,14 +415,14 @@
       </ul>
     </div>
 
-    <!-- 버튼 그룹 (핵심 메뉴들을 먼저 배치해 상단 노출) -->
+    <!-- 버튼 그룹 -->
     <div class="btn-group">
       <button class="btn btn-primary" onclick="openModal('verseModal')">📖 외울말씀 확인하기</button>
       <button class="btn btn-secondary" onclick="openModal('quizModal')">✏️ 퀴즈 확인하기</button>
       <a href="https://notebooklm.link.google/NCNqHkn7f4xa" target="_blank" class="btn btn-accent">🔔 성경골든벨 연습하기</a>
     </div>
 
-    <!-- 🗓️ 캘린더 컴포넌트 (토글 아코디언 형태로 아래로 배치) -->
+    <!-- 🗓️ 캘린더 컴포넌트 -->
     <div class="calendar-section">
       <button class="calendar-toggle-btn" onclick="toggleCalendar()">
         <span>📅 11월 · 12월 전체 일정 보기</span>
@@ -481,7 +482,7 @@
                 <td><span class="day-num">28</span></td>
               </tr>
               <tr>
-                <td><span class="day-num">29</span><span class="cal-badge bg-pink">제자훈련④</span></td>
+                <td><span class="day-num">29</span><span class="cal-badge bg-pink">제자훈련④</span><span class="cal-badge bg-yellow">성경골든벨</span></td>
                 <td><span class="day-num">30</span></td>
                 <td></td><td></td><td></td><td></td><td></td>
               </tr>
@@ -494,6 +495,7 @@
             <div class="schedule-row"><span class="s-date">11/7·14 (토)</span><span class="s-desc">MZ 전도 (오후 2시 ~ 4:00)</span></div>
             <div class="schedule-row"><span class="s-date">11/8, 15, 22, 29</span><span class="s-desc">제자훈련 ①~④ (오전 11:30, 4층 미술실)</span></div>
             <div class="schedule-row"><span class="s-date">11/21 (토)</span><span class="s-desc">전라어린이대회 (오후 1:00 ~ 5:00)</span></div>
+            <div class="schedule-row"><span class="s-date">11/29 (주일)</span><span class="s-desc">성경 골든벨</span></div>
           </div>
         </div>
 
@@ -517,7 +519,7 @@
                 <td><span class="day-num">5</span></td>
               </tr>
               <tr>
-                <td><span class="day-num">6</span><span class="cal-badge bg-yellow">성경 골든벨</span></td>
+                <td><span class="day-num">6</span></td>
                 <td><span class="day-num">7</span></td>
                 <td><span class="day-num">8</span></td>
                 <td><span class="day-num">9</span></td>
@@ -540,7 +542,7 @@
                 <td><span class="day-num">22</span></td>
                 <td><span class="day-num">23</span></td>
                 <td><span class="day-num">24</span></td>
-                <td><span class="day-num">25</span></td>
+                <td><span class="day-num" style="color:#ef4444;">25</span><span class="cal-badge bg-red">성탄감사예배</span></td>
                 <td><span class="day-num">26</span></td>
               </tr>
               <tr>
@@ -556,9 +558,9 @@
 
           <div class="schedule-summary">
             <div class="schedule-summary-title">📌 12월 주요 일정 요약</div>
-            <div class="schedule-row"><span class="s-date">12/6 (주일)</span><span class="s-desc">성경 골든벨</span></div>
             <div class="schedule-row"><span class="s-date">12/13 (주일)</span><span class="s-desc">달란트 행사</span></div>
             <div class="schedule-row"><span class="s-date">12/20 (주일)</span><span class="s-desc">6학년(중등부예배)</span></div>
+            <div class="schedule-row"><span class="s-date">12/25 (금)</span><span class="s-desc">성탄감사예배</span></div>
             <div class="schedule-row"><span class="s-date">12/27 (주일)</span><span class="s-desc">초등2부 수료식</span></div>
           </div>
         </div>
@@ -617,7 +619,6 @@
   </div>
 
   <script>
-    /* 📅 캘린더 접기/펼치기 토글 함수 */
     function toggleCalendar() {
       const btn = document.querySelector('.calendar-toggle-btn');
       const content = document.getElementById('calendarContent');
@@ -625,7 +626,6 @@
       content.classList.toggle('active');
     }
 
-    /* 📅 월별 캘린더 탭 전환 스크립트 */
     function switchCal(month) {
       const btns = document.querySelectorAll('.cal-tab-btn');
       btns.forEach(b => b.classList.remove('active'));
