@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026 광주은광교회 초등2부 교회소식 (마법의 성 Ver.)</title>
+  <title>2026 광주은광교회 초등2부 교회소식</title>
 
-  <meta property="og:title" content="2026 광주은광교회 초등2부 교회소식 - 마법 같은 한 주!">
+  <meta property="og:title" content="2026 광주은광교회 초등2부 교회소식">
   <meta property="og:description" content="외울 말씀과 퀴즈, 그리고 신나는 미션이 기다리고 있어요! ✨">
   <meta property="og:image" content="https://kimyeseul1024.github.io/church-news/thumbnail.png">
   <meta property="og:url" content="https://kimyeseul1024.github.io/church-news/">
@@ -106,14 +106,49 @@
     .info-box li { margin-bottom: 12px; word-break: keep-all; line-height: 1.5; display: flex; align-items: flex-start;}
     .info-box li strong { margin-right: 6px; }
 
-    /* 📅 캘린더 스타일 컴포넌트 */
+    /* 📅 캘린더 아코디언(접기/펼치기) 스타일 */
     .calendar-section {
       background: #ffffff;
       border: 2px solid #e2e8f0;
       border-radius: 22px;
-      padding: 20px;
       margin-bottom: 25px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+      overflow: hidden;
+    }
+
+    .calendar-toggle-btn {
+      width: 100%;
+      background: #f8fafc;
+      border: none;
+      padding: 16px 20px;
+      font-size: 16px;
+      font-weight: 900;
+      color: #4c1d95;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .calendar-toggle-btn:hover {
+      background: #f1f5f9;
+    }
+    .calendar-toggle-btn span.arrow {
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+    .calendar-toggle-btn.active span.arrow {
+      transform: rotate(180deg);
+    }
+
+    .calendar-content-wrap {
+      display: none;
+      padding: 20px;
+      border-top: 1px solid #e2e8f0;
+    }
+    .calendar-content-wrap.active {
+      display: block;
     }
     
     .cal-tabs {
@@ -174,8 +209,8 @@
       text-align: center;
       border-bottom: 1px solid #e2e8f0;
     }
-    .calendar-table th:first-child { color: #ef4444; } /* 주일 빨간색 */
-    .calendar-table th:last-child { color: #3b82f6; }  /* 토요일 파란색 */
+    .calendar-table th:first-child { color: #ef4444; }
+    .calendar-table th:last-child { color: #3b82f6; }
 
     .calendar-table td {
       height: 62px;
@@ -214,7 +249,6 @@
     .bg-purple { background: #ede9fe; color: #7c3aed; }
     .bg-blue { background: #e0f2fe; color: #0284c7; }
 
-    /* 하단 주요 일정 요약 리스트 스타일 */
     .schedule-summary {
       background: #f8fafc;
       border-radius: 14px;
@@ -368,11 +402,11 @@
   <div class="container">
     <img src="bg.jpg" alt="배너" class="top-banner">
     
-    <span class="badge">✨ 온 세상에 복음을 전해요! (마법의 성 Ver.)</span>
+    <span class="badge">✨ 온 세상에 복음을 전해요!</span>
     <h1>또 이르시되 너희는 온 천하에 다니며 만민에게 복음을 전파하라 (마가복음 16장 15절)</h1>
 
     <div class="info-box">
-      <strong>📢 디즈니 같은 한 주를 위한 주요 안내!</strong>
+      <strong>📢 주요 안내 사항</strong>
       <ul>
         <li>• <strong>1. 추수감사주일</strong> "올 한 해 주신 은혜를 생각하며 감사해요."</li>
         <li>• <strong>2. 하반기 제자훈련</strong> 11/8~29(주일, 4회) 수료 시 국내비전트립 참가자격 부여</li>
@@ -380,245 +414,33 @@
       </ul>
     </div>
 
-    <!-- 🗓️ 11월 / 12월 캘린더 컴포넌트 -->
-    <div class="calendar-section">
-      <div class="cal-tabs">
-        <button class="cal-tab-btn active" onclick="switchCal('nov')">🍁 11월 일정</button>
-        <button class="cal-tab-btn" onclick="switchCal('dec')">🎄 12월 일정</button>
-      </div>
-
-      <!-- 11월 캘린더 -->
-      <div id="calNov" class="calendar-container active">
-        <div class="calendar-header-title">2026년 11월 하반기 일정</div>
-        <table class="calendar-table">
-          <thead>
-            <tr>
-              <th>주일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="day-num">1</span></td>
-              <td><span class="day-num">2</span></td>
-              <td><span class="day-num">3</span></td>
-              <td><span class="day-num">4</span></td>
-              <td><span class="day-num">5</span></td>
-              <td><span class="day-num">6</span></td>
-              <td><span class="day-num">7</span><span class="cal-badge bg-purple">MZ 전도(1차)</span></td>
-            </tr>
-            <tr>
-              <td><span class="day-num">8</span><span class="cal-badge bg-pink">제자훈련①</span></td>
-              <td><span class="day-num">9</span></td>
-              <td><span class="day-num">10</span></td>
-              <td><span class="day-num">11</span></td>
-              <td><span class="day-num">12</span></td>
-              <td><span class="day-num">13</span></td>
-              <td><span class="day-num">14</span><span class="cal-badge bg-purple">MZ 전도(2차)</span></td>
-            </tr>
-            <tr>
-              <td><span class="day-num">15</span><span class="cal-badge bg-yellow">어와나</span><span class="cal-badge bg-pink">제자훈련②</span></td>
-              <td><span class="day-num">16</span></td>
-              <td><span class="day-num">17</span></td>
-              <td><span class="day-num">18</span></td>
-              <td><span class="day-num">19</span></td>
-              <td><span class="day-num">20</span></td>
-              <td><span class="day-num">21</span><span class="cal-badge bg-green">전라어린이대회</span></td>
-            </tr>
-            <tr>
-              <td><span class="day-num">22</span><span class="cal-badge bg-pink">제자훈련③</span></td>
-              <td><span class="day-num">23</span></td>
-              <td><span class="day-num">24</span></td>
-              <td><span class="day-num">25</span></td>
-              <td><span class="day-num">26</span></td>
-              <td><span class="day-num">27</span></td>
-              <td><span class="day-num">28</span></td>
-            </tr>
-            <tr>
-              <td><span class="day-num">29</span><span class="cal-badge bg-pink">제자훈련④</span></td>
-              <td><span class="day-num">30</span></td>
-              <td></td><td></td><td></td><td></td><td></td>
-            </tr>
-          </tbody>
-        </table>
-        
-        <div class="schedule-summary">
-          <div class="schedule-summary-title">📌 11월 주요 일정 요약</div>
-          <div class="schedule-row"><span class="s-date">~11/15 (주일)</span><span class="s-desc">어와나 (오후 1:30 ~ 3:30)</span></div>
-          <div class="schedule-row"><span class="s-date">11/7·14 (토)</span><span class="s-desc">MZ 전도 (오후 2시 ~ 4:00)</span></div>
-          <div class="schedule-row"><span class="s-date">11/8, 15, 22, 29</span><span class="s-desc">제자훈련 ①~④ (오전 11:30, 4층 미술실)</span></div>
-          <div class="schedule-row"><span class="s-date">11/21 (토)</span><span class="s-desc">전라어린이대회 (오후 1:00 ~ 5:00)</span></div>
-        </div>
-      </div>
-
-      <!-- 12월 캘린더 -->
-      <div id="calDec" class="calendar-container">
-        <div class="calendar-header-title">2026년 12월 하반기 일정</div>
-        <table class="calendar-table">
-          <thead>
-            <tr>
-              <th>주일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="day-num"></span></td>
-              <td><span class="day-num"></span></td>
-              <td><span class="day-num">1</span></td>
-              <td><span class="day-num">2</span></td>
-              <td><span class="day-num">3</span></td>
-              <td><span class="day-num">4</span></td>
-              <td><span class="day-num">5</span></td>
-            </tr>
-            <tr>
-              <td><span class="day-num">6</span><span class="cal-badge bg-yellow">성경 골든벨</span></td>
-              <td><span class="day-num">7</span></td>
-              <td><span class="day-num">8</span></td>
-              <td><span class="day-num">9</span></td>
-              <td><span class="day-num">10</span></td>
-              <td><span class="day-num">11</span></td>
-              <td><span class="day-num">12</span></td>
-            </tr>
-            <tr>
-              <td><span class="day-num">13</span><span class="cal-badge bg-green">달란트 행사</span></td>
-              <td><span class="day-num">14</span></td>
-              <td><span class="day-num">15</span></td>
-              <td><span class="day-num">16</span></td>
-              <td><span class="day-num">17</span></td>
-              <td><span class="day-num">18</span></td>
-              <td><span class="day-num">19</span></td>
-            </tr>
-            <tr>
-              <td><span class="day-num">20</span><span class="cal-badge bg-blue">6학년(중등부)</span></td>
-              <td><span class="day-num">21</span></td>
-              <td><span class="day-num">22</span></td>
-              <td><span class="day-num">23</span></td>
-              <td><span class="day-num">24</span></td>
-              <td><span class="day-num">25</span></td>
-              <td><span class="day-num">26</span></td>
-            </tr>
-            <tr>
-              <td><span class="day-num">27</span><span class="cal-badge bg-purple">초등2부 수료식</span></td>
-              <td><span class="day-num">28</span></td>
-              <td><span class="day-num">29</span></td>
-              <td><span class="day-num">30</span></td>
-              <td><span class="day-num">31</span></td>
-              <td></td><td></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="schedule-summary">
-          <div class="schedule-summary-title">📌 12월 주요 일정 요약</div>
-          <div class="schedule-row"><span class="s-date">12/6 (주일)</span><span class="s-desc">성경 골든벨</span></div>
-          <div class="schedule-row"><span class="s-date">12/13 (주일)</span><span class="s-desc">달란트 행사</span></div>
-          <div class="schedule-row"><span class="s-date">12/20 (주일)</span><span class="s-desc">6학년(중등부예배)</span></div>
-          <div class="schedule-row"><span class="s-date">12/27 (주일)</span><span class="s-desc">초등2부 수료식</span></div>
-        </div>
-      </div>
-    </div>
-
+    <!-- 버튼 그룹 (핵심 메뉴들을 먼저 배치해 상단 노출) -->
     <div class="btn-group">
       <button class="btn btn-primary" onclick="openModal('verseModal')">📖 외울말씀 확인하기</button>
       <button class="btn btn-secondary" onclick="openModal('quizModal')">✏️ 퀴즈 확인하기</button>
       <a href="https://notebooklm.link.google/NCNqHkn7f4xa" target="_blank" class="btn btn-accent">🔔 성경골든벨 연습하기</a>
     </div>
 
-    <div class="checklist">
-      <h3>✅ 이번 주 미션 성공 소원 별 ✨</h3>
-      <label><input type="checkbox"> <span>성경책 챙기기</span></label>
-      <label><input type="checkbox"> <span>성경읽기 (5장 이상, 초등2부 기간 1독 기준 6장 이상)</span></label>
-      <label><input type="checkbox"> <span>성경암송</span></label>
-    </div>
-
-    <a href="https://youtube.com/live/hhWB8GfB40Q?feature=share" target="_blank" class="btn btn-live">🔴 온라인 예배 (11/22)</a>
-
-    <footer>© 2026 yeseuly. All Rights Reserved.</footer>
-  </div>
-
-  <!-- 외울말씀 모달 -->
-  <div id="verseModal" class="modal" onclick="closeOutside(event, 'verseModal')">
-    <div class="modal-content">
-      <div class="modal-header">
-        <strong>📖 보고 따라 쓰기 연습장</strong>
-        <button class="close-btn" onclick="closeModal('verseModal')">닫기 ✕</button>
-      </div>
+    <!-- 🗓️ 캘린더 컴포넌트 (토글 아코디언 형태로 아래로 배치) -->
+    <div class="calendar-section">
+      <button class="calendar-toggle-btn" onclick="toggleCalendar()">
+        <span>📅 11월 · 12월 전체 일정 보기</span>
+        <span class="arrow">▼</span>
+      </button>
       
-      <img src="verse.jpg" alt="외울말씀 이미지">
-
-      <div style="margin-top: 15px; background: #faf5ff; padding: 20px; border-radius: 20px; border: 2px solid #e9d5ff;">
-        <label for="practiceInput" style="display: block; font-size: 15px; font-weight: 900; color: #581c87; margin-bottom: 12px;">
-          ✍️ 위 말씀을 보고 아래 칸에 예쁘게 적어보세요!
-        </label>
-        <textarea id="practiceInput" rows="3" placeholder="여기에 말씀을 써 보세요..." style="width: 100%; padding: 16px; border: 2px solid #d8b4fe; border-radius: 15px; font-size: 16px; font-family: inherit; resize: none; outline: none; background: white;"></textarea>
-        
-        <button type="button" onclick="checkPractice()" style="margin-top: 12px; width: 100%; background: linear-gradient(135deg, #a78bfa, #7e22ce); color: white; border: none; padding: 16px; border-radius: 15px; font-size: 16px; font-weight: 900; cursor: pointer; box-shadow: 0 10px 15px rgba(126, 34, 206, 0.3);">
-          따라 쓰기 완료! ✨
-        </button>
-        
-        <div id="practiceResult" style="margin-top: 12px; font-size: 15px; font-weight: 900; text-align: center; color: #10b981; display: none;">
-          참 잘했어요! 하나님의 말씀이 마음에 쏙쏙 새겨졌어요! 🎉
+      <div id="calendarContent" class="calendar-content-wrap">
+        <div class="cal-tabs">
+          <button class="cal-tab-btn active" onclick="switchCal('nov')">🍁 11월 일정</button>
+          <button class="cal-tab-btn" onclick="switchCal('dec')">🎄 12월 일정</button>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- 퀴즈 모달 -->
-  <div id="quizModal" class="modal" onclick="closeOutside(event, 'quizModal')">
-    <div class="modal-content">
-      <div class="modal-header">
-        <strong>복습 퀴즈</strong>
-        <button class="close-btn" onclick="closeModal('quizModal')">닫기 ✕</button>
-      </div>
-      <img src="quiz01.png" alt="퀴즈 1">
-      <img src="quiz02.png" alt="퀴즈 2">
-    </div>
-  </div>
-
-  <script>
-    /* 📅 월별 캘린더 탭 전환 스크립트 */
-    function switchCal(month) {
-      const btns = document.querySelectorAll('.cal-tab-btn');
-      btns.forEach(b => b.classList.remove('active'));
-      
-      document.getElementById('calNov').classList.remove('active');
-      document.getElementById('calDec').classList.remove('active');
-
-      if(month === 'nov') {
-        document.getElementById('calNov').classList.add('active');
-        btns[0].classList.add('active');
-      } else {
-        document.getElementById('calDec').classList.add('active');
-        btns[1].classList.add('active');
-      }
-    }
-
-    function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-      document.body.style.overflow = '';
-      if(id === 'verseModal') {
-        document.getElementById('practiceInput').value = '';
-        document.getElementById('practiceResult').style.display = 'none';
-      }
-    }
-    function closeOutside(event, id) {
-      if (event.target.id === id) {
-        closeModal(id);
-      }
-    }
-    function checkPractice() {
-      const inputVal = document.getElementById('practiceInput').value.trim();
-      const resultDiv = document.getElementById('practiceResult');
-      if(inputVal === "") {
-        alert("말씀을 먼저 적어보세요!");
-        return;
-      }
-      resultDiv.style.display = 'block';
-    }
-  </script>
-
-</body>
-</html>
+        <!-- 11월 캘린더 -->
+        <div id="calNov" class="calendar-container active">
+          <div class="calendar-header-title">2026년 11월 하반기 일정</div>
+          <table class="calendar-table">
+            <thead>
+              <tr>
+                <th>주일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
+              </tr>
+            </thead>
+            <tbody>
