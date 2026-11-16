@@ -106,7 +106,46 @@
     .info-box li { margin-bottom: 12px; word-break: keep-all; line-height: 1.5; display: flex; align-items: flex-start;}
     .info-box li strong { margin-right: 6px; }
 
-    /* 📅 캘린더 아코디언(접기/펼치기) 스타일 */
+    /* 🔲 가로로 나란히 배치된 버튼 그룹 스타일 */
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+    .btn {
+      flex: 1;
+      padding: 16px 10px;
+      font-size: 14px;
+      font-weight: 900;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.3s ease;
+      word-break: keep-all;
+    }
+    .btn:hover { transform: translateY(-3px); }
+
+    .btn-live { 
+      width: 100%;
+      padding: 18px;
+      font-size: 18px;
+      background: linear-gradient(135deg, #fb7185, #e11d48); 
+      margin-top: 25px; 
+    }
+    .btn-primary { background: linear-gradient(135deg, #7c3aed, #4c1d95); }
+    .btn-secondary { background: linear-gradient(135deg, #34d399, #059669); }
+    .btn-accent { background: linear-gradient(135deg, #fbbf24, #d97706); }
+
+    /* 📅 캘린더 아코디언 스타일 */
     .calendar-section {
       background: #ffffff;
       border: 2px solid #e2e8f0;
@@ -209,8 +248,8 @@
       text-align: center;
       border-bottom: 1px solid #e2e8f0;
     }
-    .calendar-table th:first-child { color: #ef4444; }
-    .calendar-table th:last-child { color: #3b82f6; }
+    .calendar-table th:first-child { color: #ef4444; } /* 주일 */
+    .calendar-table th:last-child { color: #3b82f6; }  /* 토요일 */
 
     .calendar-table td {
       height: 62px;
@@ -230,6 +269,7 @@
     }
     .calendar-table tr td:first-child .day-num { color: #ef4444; }
     .calendar-table tr td:last-child .day-num { color: #3b82f6; }
+    .weekday-col { background: #fafaf9; } /* 월~목 합쳐진 칸 배경 */
 
     .cal-badge {
       font-size: 9px;
@@ -280,34 +320,6 @@
       color: #1e293b;
       font-weight: 700;
     }
-
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-bottom: 25px;
-    }
-    .btn {
-      width: 100%;
-      padding: 18px;
-      font-size: 18px;
-      font-weight: 900;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      display: block;
-      transition: all 0.3s ease;
-    }
-    .btn:hover { transform: translateY(-3px); }
-
-    .btn-live { background: linear-gradient(135deg, #fb7185, #e11d48); margin-top: 25px; }
-    .btn-primary { background: linear-gradient(135deg, #7c3aed, #4c1d95); }
-    .btn-secondary { background: linear-gradient(135deg, #34d399, #059669); }
-    .btn-accent { background: linear-gradient(135deg, #fbbf24, #d97706); }
 
     .checklist {
       background: #fffbeb;
@@ -415,17 +427,23 @@
       </ul>
     </div>
 
-    <!-- 버튼 그룹 -->
+    <!-- 🔲 가로로 나란히 배치된 버튼 그룹 -->
     <div class="btn-group">
-      <button class="btn btn-primary" onclick="openModal('verseModal')">📖 외울말씀 확인하기</button>
-      <button class="btn btn-secondary" onclick="openModal('quizModal')">✏️ 퀴즈 확인하기</button>
-      <a href="https://notebooklm.link.google/NCNqHkn7f4xa" target="_blank" class="btn btn-accent">🔔 성경골든벨 연습하기</a>
+      <button class="btn btn-primary" onclick="openModal('verseModal')">
+        <span>📖</span> 외울 말씀 확인
+      </button>
+      <button class="btn btn-secondary" onclick="openModal('quizModal')">
+        <span>✏️</span> 복습퀴즈 확인
+      </button>
+      <a href="https://notebooklm.link.google/NCNqHkn7f4xa" target="_blank" class="btn btn-accent">
+        <span>🔔</span> 11/29 성경골든벨 준비
+      </a>
     </div>
 
     <!-- 🗓️ 캘린더 컴포넌트 -->
     <div class="calendar-section">
       <button class="calendar-toggle-btn" onclick="toggleCalendar()">
-        <span>📅 11월 · 12월 전체 일정 보기</span>
+        <span>📅 11월 · 12월 초등2부 일정 보기</span>
         <span class="arrow">▼</span>
       </button>
       
@@ -435,56 +453,44 @@
           <button class="cal-tab-btn" onclick="switchCal('dec')">🎄 12월 일정</button>
         </div>
 
-        <!-- 11월 캘린더 -->
+        <!-- 11월 캘린더 (월~목 합침) -->
         <div id="calNov" class="calendar-container active">
-          <div class="calendar-header-title">2026년 11월 하반기 일정</div>
+          <div class="calendar-header-title">2026년 11월 초등2부 일정</div>
           <table class="calendar-table">
             <thead>
               <tr>
-                <th>주일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
+                <th>주일</th><th>월~목</th><th>금</th><th>토</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><span class="day-num">1</span></td>
-                <td><span class="day-num">2</span></td>
-                <td><span class="day-num">3</span></td>
-                <td><span class="day-num">4</span></td>
-                <td><span class="day-num">5</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">2~5일</span></td>
                 <td><span class="day-num">6</span></td>
                 <td><span class="day-num">7</span><span class="cal-badge bg-purple">MZ 전도(1차)</span></td>
               </tr>
               <tr>
                 <td><span class="day-num">8</span><span class="cal-badge bg-pink">제자훈련①</span></td>
-                <td><span class="day-num">9</span></td>
-                <td><span class="day-num">10</span></td>
-                <td><span class="day-num">11</span></td>
-                <td><span class="day-num">12</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">9~12일</span></td>
                 <td><span class="day-num">13</span></td>
                 <td><span class="day-num">14</span><span class="cal-badge bg-purple">MZ 전도(2차)</span></td>
               </tr>
               <tr>
                 <td><span class="day-num">15</span><span class="cal-badge bg-yellow">어와나</span><span class="cal-badge bg-pink">제자훈련②</span></td>
-                <td><span class="day-num">16</span></td>
-                <td><span class="day-num">17</span></td>
-                <td><span class="day-num">18</span></td>
-                <td><span class="day-num">19</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">16~19일</span></td>
                 <td><span class="day-num">20</span></td>
                 <td><span class="day-num">21</span><span class="cal-badge bg-green">전라어린이대회</span></td>
               </tr>
               <tr>
                 <td><span class="day-num">22</span><span class="cal-badge bg-pink">제자훈련③</span></td>
-                <td><span class="day-num">23</span></td>
-                <td><span class="day-num">24</span></td>
-                <td><span class="day-num">25</span></td>
-                <td><span class="day-num">26</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">23~26일</span></td>
                 <td><span class="day-num">27</span></td>
                 <td><span class="day-num">28</span></td>
               </tr>
               <tr>
                 <td><span class="day-num">29</span><span class="cal-badge bg-pink">제자훈련④</span><span class="cal-badge bg-yellow">성경골든벨</span></td>
-                <td><span class="day-num">30</span></td>
-                <td></td><td></td><td></td><td></td><td></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">30일</span></td>
+                <td></td><td></td>
               </tr>
             </tbody>
           </table>
@@ -499,58 +505,43 @@
           </div>
         </div>
 
-        <!-- 12월 캘린더 -->
+        <!-- 12월 캘린더 (월~목 합침) -->
         <div id="calDec" class="calendar-container">
-          <div class="calendar-header-title">2026년 12월 하반기 일정</div>
+          <div class="calendar-header-title">2026년 12월 초등2부 일정</div>
           <table class="calendar-table">
             <thead>
               <tr>
-                <th>주일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
+                <th>주일</th><th>월~목</th><th>금</th><th>토</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><span class="day-num"></span></td>
-                <td><span class="day-num"></span></td>
-                <td><span class="day-num">1</span></td>
-                <td><span class="day-num">2</span></td>
-                <td><span class="day-num">3</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">1~3일</span></td>
                 <td><span class="day-num">4</span></td>
                 <td><span class="day-num">5</span></td>
               </tr>
               <tr>
                 <td><span class="day-num">6</span></td>
-                <td><span class="day-num">7</span></td>
-                <td><span class="day-num">8</span></td>
-                <td><span class="day-num">9</span></td>
-                <td><span class="day-num">10</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">7~10일</span></td>
                 <td><span class="day-num">11</span></td>
                 <td><span class="day-num">12</span></td>
               </tr>
               <tr>
                 <td><span class="day-num">13</span><span class="cal-badge bg-green">달란트 행사</span></td>
-                <td><span class="day-num">14</span></td>
-                <td><span class="day-num">15</span></td>
-                <td><span class="day-num">16</span></td>
-                <td><span class="day-num">17</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">14~17일</span></td>
                 <td><span class="day-num">18</span></td>
                 <td><span class="day-num">19</span></td>
               </tr>
               <tr>
                 <td><span class="day-num">20</span><span class="cal-badge bg-blue">6학년(중등부)</span></td>
-                <td><span class="day-num">21</span></td>
-                <td><span class="day-num">22</span></td>
-                <td><span class="day-num">23</span></td>
-                <td><span class="day-num">24</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">21~24일</span></td>
                 <td><span class="day-num" style="color:#ef4444;">25</span><span class="cal-badge bg-red">성탄감사예배</span></td>
                 <td><span class="day-num">26</span></td>
               </tr>
               <tr>
                 <td><span class="day-num">27</span><span class="cal-badge bg-purple">초등2부 수료식</span></td>
-                <td><span class="day-num">28</span></td>
-                <td><span class="day-num">29</span></td>
-                <td><span class="day-num">30</span></td>
-                <td><span class="day-num">31</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">28~31일</span></td>
                 <td></td><td></td>
               </tr>
             </tbody>
