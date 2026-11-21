@@ -96,7 +96,7 @@
     .info-box ul { list-style: none; }
     .info-box li { margin-bottom: 12px; word-break: keep-all; line-height: 1.5; display: flex; align-items: flex-start;}
     .info-box li:last-child { margin-bottom: 0; }
-    .info-box li strong { margin-right: 6px; }
+    .info-box li strong { margin-right: 6px; flex-shrink: 0; }
 
     /* 🙏 대표기도 순서 박스 */
     .prayer-box {
@@ -462,9 +462,9 @@
     <span class="badge">✨ 초등2부 소식 전합니다! </span>
     <div class="info-box">
       <ul>
-        <li>• <strong>1. 추수감사주일</strong> "올 한 해 주신 은혜를 생각하며 감사해요."</li>
-        <li>• <strong>2. 하반기 제자훈련</strong> 11/8~29(주일, 4회) 수료 시 국내비전트립 참가자격 부여</li>
-        <li>• <strong>3. 전라어린이대회</strong> 출전하는 친구들, 모두 파이팅!!</li>
+        <li>• <strong>1. 제 15회 전라어린이대회:</strong> <span>잘 마쳤습니다. 모두 수고하였습니다.</span></li>
+        <li>• <strong>2. 하반기 제자훈련:</strong> <span>11/8~29(주일, 4회) 수료 시 국내비전트립 참가자격 부여</span></li>
+        <li>• <strong>3. 11/29(주) 예배 후 성경골든벨:</strong> <span>아래 연습하기 고고</span></li>
       </ul>
     </div>
 
@@ -499,12 +499,12 @@
         <span>🎨</span> 성경카툰보기
       </button>
       <button class="btn btn-home" onclick="openModal('homeModal')">
-        <span>🏡</span> 가정에서 이루어지는 하나님 나라(HOME LETTER)
+        <span>🏡</span> 가정에서 이뤄지는 하나님 나라
       </button>
       <a href="https://notebooklm.link.google/NCNqHkn7f4xa" target="_blank" class="btn btn-accent">
         <span>🔔</span> 11/29 골든벨
       </a>
-      <a href="https://vimeo.com/827276630?share=copy" target="_blank" class="btn btn-info">
+      <a href="https://vimeo.com/827276630" target="_blank" class="btn btn-info">
         <span>🎬</span> 킹덤툰 45과
       </a>
     </div>
@@ -698,15 +698,15 @@
     </div>
   </div>
 
-  <!-- 가정에서 이루어지는 하나님 나라(HOME LETTER) 모달 -->
+  <!-- 가정에서 이뤄지는 하나님 나라 모달 -->
   <div id="homeModal" class="modal" onclick="closeOutside(event, 'homeModal')">
     <div class="modal-content">
       <div class="modal-header">
-        <strong>🏡 가정에서 이루어지는 하나님 나라(HOME LETTER)</strong>
+        <strong>🏡 가정에서 이뤄지는 하나님 나라</strong>
         <button class="close-btn" onclick="closeModal('homeModal')">닫기 ✕</button>
       </div>
-      <img src="home01.jpg" alt="홈레터 1">
-      <img src="home02.jpg" alt="홈레터 2">
+      <img src="home01.png" alt="홈레터 1">
+      <img src="home02.png" alt="홈레터 2">
     </div>
   </div>
 
