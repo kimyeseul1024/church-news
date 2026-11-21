@@ -77,15 +77,6 @@
       border: 1px solid #fde047;
     }
 
-    h1 {
-      font-size: 20px;
-      font-weight: 900;
-      line-height: 1.4;
-      margin-bottom: 24px;
-      color: #581c87;
-      word-break: keep-all;
-    }
-
     .info-box {
       background: #f5f3ff;
       border: 2px dashed #c4b5fd;
@@ -106,16 +97,18 @@
     .info-box li { margin-bottom: 12px; word-break: keep-all; line-height: 1.5; display: flex; align-items: flex-start;}
     .info-box li strong { margin-right: 6px; }
 
-    /* 🔲 4개 버튼 가로 배치 스타일 */
+    /* 🔲 액션 버튼 그룹 스타일 */
     .btn-group {
       display: flex;
+      flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 25px;
     }
     .btn {
-      flex: 1;
-      padding: 14px 6px;
-      font-size: 13px;
+      flex: 1 1 calc(33.333% - 8px);
+      min-width: 105px;
+      padding: 14px 8px;
+      font-size: 12.5px;
       font-weight: 900;
       border: none;
       border-radius: 16px;
@@ -131,6 +124,7 @@
       gap: 4px;
       transition: all 0.3s ease;
       word-break: keep-all;
+      line-height: 1.35;
     }
     .btn:hover { transform: translateY(-3px); }
 
@@ -143,6 +137,8 @@
     }
     .btn-primary { background: linear-gradient(135deg, #7c3aed, #4c1d95); }
     .btn-secondary { background: linear-gradient(135deg, #34d399, #059669); }
+    .btn-toon { background: linear-gradient(135deg, #f472b6, #db2777); }
+    .btn-home { background: linear-gradient(135deg, #fb923c, #ea580c); }
     .btn-accent { background: linear-gradient(135deg, #fbbf24, #d97706); }
     .btn-info { background: linear-gradient(135deg, #38bdf8, #0284c7); }
 
@@ -425,13 +421,19 @@
       </ul>
     </div>
 
-    <!-- 🔲 4개 버튼 가로 배치 그룹 -->
+    <!-- 🔲 액션 버튼 그룹 -->
     <div class="btn-group">
       <button class="btn btn-primary" onclick="openModal('verseModal')">
         <span>📖</span> 외울 말씀 확인
       </button>
       <button class="btn btn-secondary" onclick="openModal('quizModal')">
         <span>✏️</span> 복습퀴즈 확인
+      </button>
+      <button class="btn btn-toon" onclick="openModal('toonModal')">
+        <span>🎨</span> 성경카툰보기
+      </button>
+      <button class="btn btn-home" onclick="openModal('homeModal')">
+        <span>🏡</span> 가정에서 이루어지는 하나님 나라(HOME LETTER)
       </button>
       <a href="https://notebooklm.link.google/NCNqHkn7f4xa" target="_blank" class="btn btn-accent">
         <span>🔔</span> 11/29 골든벨
@@ -571,7 +573,7 @@
     <footer>© 2026 yeseuly. All Rights Reserved.</footer>
   </div>
 
-  <!-- 외울말씀 모달 (이미지 + 챈트 + 따라쓰기) -->
+  <!-- 외울말씀 모달 (verse.png + 챈트 + 따라쓰기) -->
   <div id="verseModal" class="modal" onclick="closeOutside(event, 'verseModal')">
     <div class="modal-content">
       <div class="modal-header">
@@ -579,17 +581,14 @@
         <button class="close-btn" onclick="closeModal('verseModal')">닫기 ✕</button>
       </div>
       
-      <!-- 1. 이미지 -->
-      <img src="verse.jpg" alt="외울말씀 이미지">
+      <img src="verse.png" alt="외울말씀 이미지">
 
-      <!-- 2. 챈트 영상 링크 버튼 -->
       <div style="margin-bottom: 15px;">
         <a href="https://vimeo.com/777285262" target="_blank" style="display: block; width: 100%; background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; padding: 14px; border-radius: 15px; text-align: center; font-size: 16px; font-weight: 900; text-decoration: none; box-shadow: 0 8px 15px rgba(2, 132, 199, 0.3);">
           🎵 신나는 챈트 영상 보러가기 ✨
         </a>
       </div>
 
-      <!-- 3. 따라쓰기 연습장 -->
       <div style="background: #faf5ff; padding: 20px; border-radius: 20px; border: 2px solid #e9d5ff;">
         <label for="practiceInput" style="display: block; font-size: 15px; font-weight: 900; color: #581c87; margin-bottom: 12px;">
           ✍️ 위 말씀을 보고 아래 칸에 예쁘게 적어보세요!
@@ -611,11 +610,37 @@
   <div id="quizModal" class="modal" onclick="closeOutside(event, 'quizModal')">
     <div class="modal-content">
       <div class="modal-header">
-        <strong>복습 퀴즈</strong>
+        <strong>✏️ 복습 퀴즈</strong>
         <button class="close-btn" onclick="closeModal('quizModal')">닫기 ✕</button>
       </div>
       <img src="quiz01.png" alt="퀴즈 1">
       <img src="quiz02.png" alt="퀴즈 2">
+    </div>
+  </div>
+
+  <!-- 성경카툰 모달 (toon01.jpg ~ toon04.jpg) -->
+  <div id="toonModal" class="modal" onclick="closeOutside(event, 'toonModal')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <strong>🎨 성경카툰보기</strong>
+        <button class="close-btn" onclick="closeModal('toonModal')">닫기 ✕</button>
+      </div>
+      <img src="toon01.jpg" alt="성경카툰 1">
+      <img src="toon02.jpg" alt="성경카툰 2">
+      <img src="toon03.jpg" alt="성경카툰 3">
+      <img src="toon04.jpg" alt="성경카툰 4">
+    </div>
+  </div>
+
+  <!-- 가정에서 이루어지는 하나님 나라(HOME LETTER) 모달 -->
+  <div id="homeModal" class="modal" onclick="closeOutside(event, 'homeModal')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <strong>🏡 가정에서 이루어지는 하나님 나라(HOME LETTER)</strong>
+        <button class="close-btn" onclick="closeModal('homeModal')">닫기 ✕</button>
+      </div>
+      <img src="home01.jpg" alt="홈레터 1">
+      <img src="home02.jpg" alt="홈레터 2">
     </div>
   </div>
 
