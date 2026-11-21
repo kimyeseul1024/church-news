@@ -82,7 +82,7 @@
       border: 2px dashed #c4b5fd;
       padding: 20px;
       border-radius: 20px;
-      margin-bottom: 25px;
+      margin-bottom: 18px;
       font-size: 15px;
       color: #4c1d95;
       position: relative;
@@ -95,7 +95,54 @@
     .info-box strong { font-weight: 700; color: #6d28d9; }
     .info-box ul { list-style: none; }
     .info-box li { margin-bottom: 12px; word-break: keep-all; line-height: 1.5; display: flex; align-items: flex-start;}
+    .info-box li:last-child { margin-bottom: 0; }
     .info-box li strong { margin-right: 6px; }
+
+    /* 🙏 대표기도 순서 박스 */
+    .prayer-box {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 2px solid #fcd34d;
+      padding: 18px 20px;
+      border-radius: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 6px 15px rgba(245, 158, 11, 0.08);
+    }
+    .prayer-title {
+      font-size: 15px;
+      font-weight: 900;
+      color: #92400e;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .prayer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .prayer-item {
+      background: rgba(255, 255, 255, 0.88);
+      padding: 10px 14px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      border: 1px solid #fde68a;
+    }
+    .prayer-date {
+      font-weight: 900;
+      color: #b45309;
+      background: #fef3c7;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+    .prayer-name {
+      font-weight: 700;
+      color: #451a03;
+    }
 
     /* 🔲 액션 버튼 그룹 스타일 */
     .btn-group {
@@ -421,6 +468,25 @@
       </ul>
     </div>
 
+    <!-- 🙏 대표기도 순서 -->
+    <div class="prayer-box">
+      <div class="prayer-title">🙏 대표기도 순서</div>
+      <div class="prayer-list">
+        <div class="prayer-item">
+          <span class="prayer-date">11/22</span>
+          <span class="prayer-name">이준우 친구</span>
+        </div>
+        <div class="prayer-item">
+          <span class="prayer-date">11/29</span>
+          <span class="prayer-name">5-3 김소율 친구</span>
+        </div>
+        <div class="prayer-item">
+          <span class="prayer-date">12/6</span>
+          <span class="prayer-name">5-3 김윤하 친구</span>
+        </div>
+      </div>
+    </div>
+
     <!-- 🔲 액션 버튼 그룹 -->
     <div class="btn-group">
       <button class="btn btn-primary" onclick="openModal('verseModal')">
@@ -438,8 +504,8 @@
       <a href="https://notebooklm.link.google/NCNqHkn7f4xa" target="_blank" class="btn btn-accent">
         <span>🔔</span> 11/29 골든벨
       </a>
-      <a href="https://vimeo.com/827276579?su_via=got&signup=true" target="_blank" class="btn btn-info">
-        <span>🎬</span> 킹덤툰 44과
+      <a href="https://vimeo.com/827276630?share=copy" target="_blank" class="btn btn-info">
+        <span>🎬</span> 킹덤툰 45과
       </a>
     </div>
 
@@ -568,7 +634,7 @@
       <label><input type="checkbox"> <span>성경암송</span></label>
     </div>
 
-    <a href="https://youtube.com/live/hhWB8GfB40Q?feature=share" target="_blank" class="btn btn-live">🔴 온라인 예배 (11/22)</a>
+    <a href="https://www.youtube.com/live/hhWB8GfB40Q?si=PPHrg3rRU7oQ3AUe" target="_blank" class="btn btn-live">🔴 온라인 예배 (11/22)</a>
 
     <footer>© 2026 yeseuly. All Rights Reserved.</footer>
   </div>
@@ -584,7 +650,7 @@
       <img src="verse.png" alt="외울말씀 이미지">
 
       <div style="margin-bottom: 15px;">
-        <a href="https://vimeo.com/777285262" target="_blank" style="display: block; width: 100%; background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; padding: 14px; border-radius: 15px; text-align: center; font-size: 16px; font-weight: 900; text-decoration: none; box-shadow: 0 8px 15px rgba(2, 132, 199, 0.3);">
+        <a href="https://vimeo.com/777285277" target="_blank" style="display: block; width: 100%; background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; padding: 14px; border-radius: 15px; text-align: center; font-size: 16px; font-weight: 900; text-decoration: none; box-shadow: 0 8px 15px rgba(2, 132, 199, 0.3);">
           🎵 신나는 챈트 영상 보러가기 ✨
         </a>
       </div>
