@@ -294,7 +294,7 @@
 
     .calendar-content-wrap {
       display: none;
-      padding: 20px;
+      padding: 18px 14px;
       border-top: 1px solid #e2e8f0;
     }
     .calendar-content-wrap.active {
@@ -353,7 +353,7 @@
     .calendar-table th {
       background: #f8fafc;
       color: #475569;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       padding: 8px 2px;
       text-align: center;
@@ -363,10 +363,10 @@
     .calendar-table th:last-child { color: #3b82f6; }
 
     .calendar-table td {
-      height: 62px;
+      height: 64px;
       border: 1px solid #f1f5f9;
       vertical-align: top;
-      padding: 4px;
+      padding: 3px 2px;
       font-size: 11px;
       position: relative;
     }
@@ -377,6 +377,7 @@
       color: #334155;
       display: block;
       margin-bottom: 2px;
+      padding-left: 2px;
     }
     .calendar-table tr td:first-child .day-num { color: #ef4444; }
     .calendar-table tr td:last-child .day-num { color: #3b82f6; }
@@ -385,7 +386,7 @@
     .cal-badge {
       font-size: 9px;
       font-weight: 700;
-      padding: 2px 4px;
+      padding: 2px 3px;
       border-radius: 4px;
       display: block;
       margin-bottom: 2px;
@@ -393,6 +394,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       text-align: center;
+      letter-spacing: -0.4px;
     }
     .bg-pink { background: #fce7f3; color: #db2777; }
     .bg-yellow { background: #fef08a; color: #ca8a04; }
@@ -721,13 +723,13 @@
           </div>
         </div>
 
-        <!-- 12월 캘린더 -->
+        <!-- 12월 캘린더 (주일 | 월~수 | 목 | 금 | 토) -->
         <div id="calDec" class="calendar-container">
           <div class="calendar-header-title">2026년 12월 초등2부 일정</div>
           <table class="calendar-table">
             <thead>
               <tr>
-                <th>주일</th><th>월~수</th><th>목</th><th>금·토</th>
+                <th>주일</th><th>월~수</th><th>목</th><th>금</th><th>토</th>
               </tr>
             </thead>
             <tbody>
@@ -735,30 +737,35 @@
                 <td><span class="day-num"></span></td>
                 <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">1~2일</span></td>
                 <td><span class="day-num">3</span></td>
-                <td><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">4~5일</span></td>
+                <td><span class="day-num">4</span></td>
+                <td><span class="day-num">5</span></td>
               </tr>
               <tr>
-                <td><span class="day-num">6</span><span class="cal-badge bg-pink">제자훈련④</span><span class="cal-badge bg-yellow">제자훈련 종료</span></td>
+                <td><span class="day-num">6</span><span class="cal-badge bg-pink">제자훈련④</span><span class="cal-badge bg-yellow">종료</span></td>
                 <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">7~9일</span></td>
                 <td><span class="day-num">10</span></td>
-                <td><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">11~12일</span></td>
+                <td><span class="day-num">11</span></td>
+                <td><span class="day-num">12</span></td>
               </tr>
               <tr>
                 <td><span class="day-num">13</span></td>
                 <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">14~16일</span></td>
                 <td><span class="day-num">17</span></td>
-                <td><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">18~19일</span></td>
+                <td><span class="day-num">18</span></td>
+                <td><span class="day-num">19</span></td>
               </tr>
               <tr>
                 <td><span class="day-num">20</span></td>
                 <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">21~23일</span></td>
                 <td><span class="day-num">24</span><span class="cal-badge bg-pink">성탄저녁송</span></td>
-                <td><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">25~26일</span></td>
+                <td><span class="day-num">25</span><span class="cal-badge bg-red">성탄감사예배</span></td>
+                <td><span class="day-num">26</span></td>
               </tr>
               <tr>
                 <td><span class="day-num">27</span><span class="cal-badge bg-green">달란트잔치</span><span class="cal-badge bg-purple">수료식</span></td>
                 <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">28~30일</span></td>
                 <td><span class="day-num">31</span></td>
+                <td></td>
                 <td></td>
               </tr>
             </tbody>
@@ -768,9 +775,8 @@
             <div class="schedule-summary-title">📌 12월 주요 일정 요약</div>
             <div class="schedule-row"><span class="s-date">~ 12/6 (주)</span><span class="s-desc">하반기 제자훈련 종료 (4회차)</span></div>
             <div class="schedule-row"><span class="s-date">12/24 (목)</span><span class="s-desc">성탄저녁송</span></div>
-            <div class="schedule-row"><span class="s-date">12/27 (주)</span><span class="s-desc">달란트잔치</span></div>
-            <div class="schedule-row"><span class="s-date">12/27 (주)</span><span class="s-desc">수료식</span></div>
-            <div class="schedule-row"><span class="s-date">11/29 (주)</span><span class="s-desc">성경퀴즈대회</span></div>
+            <div class="schedule-row"><span class="s-date">12/25 (금)</span><span class="s-desc">성탄감사예배 (오전 11:00)</span></div>
+            <div class="schedule-row"><span class="s-date">12/27 (주)</span><span class="s-desc">달란트잔치 · 수료식</span></div>
           </div>
         </div>
       </div>
