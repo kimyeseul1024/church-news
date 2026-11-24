@@ -18,51 +18,36 @@
       margin: 0;
       padding: 0;
     }
+
     body {
       font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background: radial-gradient(circle at center, #fffbeb 0%, #e0f2fe 50%, #fce7f3 100%);
       background-attachment: fixed;
       color: #4a044e;
-      padding: 40px 16px;
+      padding: 32px 14px;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       min-height: 100vh;
-      position: relative;
-    }
-
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-image: 
-        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
-        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
-        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
-      background-size: 550px 550px, 350px 350px, 250px 250px;
-      background-position: 0 0, 40px 60px, 130px 270px;
-      opacity: 0.6;
-      z-index: -1;
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.93);
+      background: rgba(255, 255, 255, 0.94);
       max-width: 640px;
       width: 100%;
-      padding: 35px 22px;
+      padding: 30px 20px;
       border-radius: 30px;
       box-shadow: 0 20px 50px rgba(124, 58, 237, 0.15);
-      border: 3px solid white;
-      backdrop-filter: blur(10px);
+      border: 3px solid #ffffff;
     }
 
     .top-banner {
       width: 100%;
       border-radius: 20px;
-      margin-bottom: 25px;
+      margin-bottom: 22px;
       display: block;
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
-      border: 4px solid white;
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
+      border: 4px solid #ffffff;
     }
 
     .badge {
@@ -71,58 +56,67 @@
       color: #7e22ce;
       font-size: 14px;
       font-weight: 900;
-      padding: 8px 20px;
+      padding: 8px 18px;
       border-radius: 30px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       border: 1px solid #fde047;
     }
 
     .info-box {
       background: #f5f3ff;
       border: 2px dashed #c4b5fd;
-      padding: 20px;
+      padding: 18px 20px;
       border-radius: 20px;
       margin-bottom: 18px;
       font-size: 15px;
       color: #4c1d95;
-      position: relative;
     }
-    .info-box::after {
-      content: '✨';
-      position: absolute; top: -10px; right: -10px;
-      font-size: 24px; transform: rotate(15deg);
-    }
-    .info-box strong { font-weight: 700; color: #6d28d9; }
-    .info-box ul { list-style: none; }
-    .info-box li { margin-bottom: 12px; word-break: keep-all; line-height: 1.5; display: flex; align-items: flex-start;}
-    .info-box li:last-child { margin-bottom: 0; }
-    .info-box li strong { margin-right: 6px; flex-shrink: 0; }
 
-    /* 🙏 대표기도 순서 박스 */
+    .info-box ul {
+      list-style: none;
+    }
+
+    .info-box li {
+      margin-bottom: 10px;
+      word-break: keep-all;
+      line-height: 1.5;
+    }
+
+    .info-box li:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-box strong {
+      font-weight: 900;
+      color: #6d28d9;
+      margin-right: 4px;
+    }
+
+    /* 대표기도 순서 */
     .prayer-box {
       background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
       border: 2px solid #fcd34d;
       padding: 18px 20px;
       border-radius: 20px;
-      margin-bottom: 25px;
+      margin-bottom: 24px;
       box-shadow: 0 6px 15px rgba(245, 158, 11, 0.08);
     }
+
     .prayer-title {
       font-size: 15px;
       font-weight: 900;
       color: #92400e;
       margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
+
     .prayer-list {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
+
     .prayer-item {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       padding: 10px 14px;
       border-radius: 12px;
       display: flex;
@@ -130,8 +124,8 @@
       align-items: center;
       font-size: 14px;
       border: 1px solid #fde68a;
-      transition: all 0.2s ease;
     }
+
     .prayer-date {
       font-weight: 900;
       color: #b45309;
@@ -140,11 +134,13 @@
       border-radius: 20px;
       font-size: 13px;
     }
+
     .prayer-name-wrap {
       display: flex;
       align-items: center;
       gap: 8px;
     }
+
     .prayer-name {
       font-weight: 700;
       color: #451a03;
@@ -155,10 +151,12 @@
       border-color: #e2e8f0;
       opacity: 0.6;
     }
+
     .prayer-item.past .prayer-date {
       background: #e2e8f0;
       color: #64748b;
     }
+
     .prayer-item.past .prayer-name {
       color: #64748b;
       text-decoration: line-through;
@@ -168,17 +166,19 @@
       background: #ffffff;
       border: 2.5px solid #f59e0b;
       box-shadow: 0 4px 12px rgba(245, 158, 11, 0.22);
-      transform: scale(1.01);
     }
+
     .prayer-item.next-up .prayer-date {
       background: linear-gradient(135deg, #f59e0b, #d97706);
       color: #ffffff;
     }
+
     .prayer-item.next-up .prayer-name {
       font-weight: 900;
       font-size: 15px;
       color: #78350f;
     }
+
     .next-badge {
       background: #fef3c7;
       color: #b45309;
@@ -189,20 +189,21 @@
       border-radius: 12px;
     }
 
-    /* 🏰 디즈니 컬러조합 6개 액션 버튼 그룹 */
+    /* 디즈니 컬러조합 6개 액션 버튼 */
     .btn-group {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 25px;
+      margin-bottom: 24px;
     }
+
     .btn {
       flex: 1 1 calc(50% - 10px);
       min-width: 145px;
       padding: 19px 14px;
       font-size: 17px;
       font-weight: 900;
-      border: 2px solid rgba(255, 255, 255, 0.85);
+      border: 2px solid rgba(255, 255, 255, 0.88);
       border-radius: 20px;
       cursor: pointer;
       color: #ffffff;
@@ -211,39 +212,51 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: all 0.25s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       word-break: keep-all;
       line-height: 1.35;
       letter-spacing: -0.3px;
       text-shadow: 0 1px 4px rgba(30, 27, 75, 0.28);
     }
-    .btn:hover { transform: translateY(-3px); }
 
-    .btn-live { 
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-live {
       width: 100%;
       padding: 19px;
       font-size: 18px;
       background: linear-gradient(135deg, #fb7185, #e11d48);
       box-shadow: 0 8px 20px rgba(225, 29, 72, 0.28);
-      margin-top: 12px; 
+      margin-top: 12px;
     }
 
+    /* 1. 외울 말씀 확인 - 신데렐라 매지컬 블루 */
     .btn-primary {
       background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 55%, #2563eb 100%);
       box-shadow: 0 8px 18px rgba(59, 130, 246, 0.28);
     }
+
+    /* 2. 복습퀴즈 확인 - 라푼젤 로열 라벤더 */
     .btn-secondary {
       background: linear-gradient(135deg, #c084fc 0%, #a855f7 55%, #7e22ce 100%);
       box-shadow: 0 8px 18px rgba(168, 85, 247, 0.28);
     }
+
+    /* 3. 성경카툰보기 - 오로라 페어리 로즈핑크 */
     .btn-toon {
       background: linear-gradient(135deg, #f472b6 0%, #ec4899 55%, #db2777 100%);
       box-shadow: 0 8px 18px rgba(236, 72, 153, 0.28);
     }
+
+    /* 4. 가정에서 이뤄지는 하나님 나라 - 선셋 코랄 & 골드피치 */
     .btn-home {
       background: linear-gradient(135deg, #fb923c 0%, #f97316 55%, #ea580c 100%);
       box-shadow: 0 8px 18px rgba(249, 115, 22, 0.28);
     }
+
+    /* 5. 성경골든벨 연습하기 - 벨 로열 골드 & 스파클 글로우 */
     .btn-accent {
       background: linear-gradient(270deg, #fde047, #facc15, #fb923c, #f472b6, #fde047);
       background-size: 350% 350%;
@@ -252,11 +265,13 @@
       border: 2.5px solid #ffffff;
       animation: rainbowShift 3s ease infinite, dazzlingPulse 1.15s ease-in-out infinite alternate;
     }
+
     @keyframes rainbowShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
     @keyframes dazzlingPulse {
       0% {
         box-shadow: 0 6px 16px rgba(250, 204, 21, 0.45), 0 0 12px rgba(253, 224, 71, 0.7);
@@ -265,20 +280,23 @@
         box-shadow: 0 10px 28px rgba(244, 114, 182, 0.75), 0 0 24px rgba(255, 255, 255, 1);
       }
     }
+
+    /* 6. 킹덤툰 46과 - 네버랜드 에메랄드 민트 */
     .btn-info {
       background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 55%, #0d9488 100%);
       box-shadow: 0 8px 18px rgba(20, 184, 166, 0.28);
     }
 
-    /* 📅 오픈형 캘린더 섹션 */
+    /* 오픈형 캘린더 */
     .calendar-section {
       background: #ffffff;
       border: 2px solid #e2e8f0;
       border-radius: 22px;
-      margin-bottom: 25px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
       overflow: hidden;
     }
+
     .calendar-open-header {
       width: 100%;
       background: linear-gradient(90deg, #f5f3ff 0%, #eff6ff 50%, #fdf2f8 100%);
@@ -291,15 +309,18 @@
       justify-content: space-between;
       align-items: center;
     }
+
     .calendar-content-wrap {
       display: block;
       padding: 18px 14px;
     }
+
     .cal-tabs {
       display: flex;
       gap: 10px;
       margin-bottom: 18px;
     }
+
     .cal-tab-btn {
       flex: 1;
       padding: 12px;
@@ -312,13 +333,21 @@
       color: #64748b;
       transition: all 0.2s;
     }
+
     .cal-tab-btn.active {
       background: linear-gradient(135deg, #7c3aed, #4c1d95);
-      color: white;
+      color: #ffffff;
       box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
     }
-    .calendar-container { display: none; }
-    .calendar-container.active { display: block; }
+
+    .calendar-container {
+      display: none;
+    }
+
+    .calendar-container.active {
+      display: block;
+    }
+
     .calendar-header-title {
       font-size: 18px;
       font-weight: 900;
@@ -326,16 +355,18 @@
       margin-bottom: 14px;
       text-align: center;
     }
+
     .calendar-table {
       width: 100%;
       border-collapse: collapse;
       table-layout: fixed;
       margin-bottom: 16px;
-      background: white;
+      background: #ffffff;
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid #e2e8f0;
     }
+
     .calendar-table th {
       background: #f8fafc;
       color: #475569;
@@ -345,16 +376,23 @@
       text-align: center;
       border-bottom: 1px solid #e2e8f0;
     }
-    .calendar-table th:first-child { color: #ef4444; }
-    .calendar-table th:last-child { color: #3b82f6; }
+
+    .calendar-table th:first-child {
+      color: #ef4444;
+    }
+
+    .calendar-table th:last-child {
+      color: #3b82f6;
+    }
+
     .calendar-table td {
       height: 64px;
       border: 1px solid #f1f5f9;
       vertical-align: top;
       padding: 3px 2px;
       font-size: 11px;
-      position: relative;
     }
+
     .day-num {
       font-weight: 700;
       font-size: 12px;
@@ -363,9 +401,19 @@
       margin-bottom: 2px;
       padding-left: 2px;
     }
-    .calendar-table tr td:first-child .day-num { color: #ef4444; }
-    .calendar-table tr td:last-child .day-num { color: #3b82f6; }
-    .weekday-col { background: #fafaf9; }
+
+    .calendar-table tr td:first-child .day-num {
+      color: #ef4444;
+    }
+
+    .calendar-table tr td:last-child .day-num {
+      color: #3b82f6;
+    }
+
+    .weekday-col {
+      background: #fafaf9;
+    }
+
     .cal-badge {
       font-size: 9px;
       font-weight: 700;
@@ -379,6 +427,7 @@
       text-align: center;
       letter-spacing: -0.4px;
     }
+
     .bg-pink { background: #fce7f3; color: #db2777; }
     .bg-yellow { background: #fef08a; color: #ca8a04; }
     .bg-green { background: #dcfce7; color: #16a34a; }
@@ -392,12 +441,14 @@
       padding: 12px;
       border: 1px solid #e2e8f0;
     }
+
     .schedule-summary-title {
       font-size: 13px;
       font-weight: 900;
       color: #334155;
       margin-bottom: 8px;
     }
+
     .schedule-row {
       display: flex;
       align-items: center;
@@ -406,59 +457,71 @@
       padding-bottom: 6px;
       border-bottom: 1px dashed #e2e8f0;
     }
-    .schedule-row:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-    .s-date { min-width: 95px; font-weight: 700; color: #4f46e5; }
-    .s-desc { color: #1e293b; font-weight: 700; }
+
+    .schedule-row:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .s-date {
+      min-width: 95px;
+      font-weight: 700;
+      color: #4f46e5;
+    }
+
+    .s-desc {
+      color: #1e293b;
+      font-weight: 700;
+    }
 
     .checklist {
       background: #fffbeb;
       border: 2px solid #fde68a;
-      padding: 24px;
+      padding: 22px;
       border-radius: 20px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
+
     .checklist h3 {
       font-size: 17px;
       color: #92400e;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       font-weight: 900;
     }
+
     .checklist label {
       display: flex;
       align-items: flex-start;
       gap: 12px;
       font-size: 15px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       cursor: pointer;
       word-break: keep-all;
       line-height: 1.5;
       color: #a16207;
     }
-    .checklist label:last-child { margin-bottom: 0; }
-    .checklist input {
-      width: 24px; height: 24px;
-      margin-top: 2px;
-      accent-color: #f59e0b;
-      cursor: pointer; flex-shrink: 0;
-      appearance: none;
-      border: 2px solid #f59e0b;
-      border-radius: 6px;
-      background-color: white;
-      position: relative;
-    }
-    .checklist input:checked { background-color: #f59e0b; border-color: #f59e0b; }
-    .checklist input:checked::after {
-      content: '✔';
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      color: white; font-size: 16px; font-weight: 900;
-    }
-    .checklist input:checked + span {
-      text-decoration: line-through;
-      color: #d97706; opacity: 0.7;
+
+    .checklist label:last-child {
+      margin-bottom: 0;
     }
 
-    /* 🎶 컴팩트 4열 한 줄 찬양율동 영상보기 섹션 */
+    .checklist input {
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+      accent-color: #f59e0b;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .checklist input:checked + span {
+      text-decoration: line-through;
+      color: #d97706;
+      opacity: 0.7;
+    }
+
+    /* 컴팩트 4열 한 줄 찬양율동 영상보기 */
     .praise-section {
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(250, 245, 255, 0.94));
       border: 2px solid rgba(196, 181, 253, 0.75);
@@ -467,6 +530,7 @@
       margin-bottom: 18px;
       box-shadow: 0 10px 24px rgba(124, 58, 237, 0.08);
     }
+
     .praise-header {
       display: flex;
       justify-content: space-between;
@@ -474,14 +538,14 @@
       margin-bottom: 11px;
       padding: 0 2px;
     }
+
     .praise-title {
       font-size: 15px;
       font-weight: 900;
-      background: linear-gradient(90deg, #6d28d9, #db2777);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #6d28d9;
       letter-spacing: -0.3px;
     }
+
     .praise-subtitle {
       font-size: 11px;
       font-weight: 700;
@@ -490,11 +554,13 @@
       padding: 3px 8px;
       border-radius: 999px;
     }
+
     .praise-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 8px;
     }
+
     .praise-card {
       position: relative;
       display: flex;
@@ -505,13 +571,15 @@
       text-decoration: none;
       border: 1.5px solid #ede9fe;
       box-shadow: 0 5px 12px rgba(76, 29, 149, 0.07);
-      transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
+
     .praise-card:hover {
       transform: translateY(-3px);
       border-color: #c084fc;
       box-shadow: 0 10px 18px rgba(124, 58, 237, 0.16);
     }
+
     .praise-thumb-wrap {
       position: relative;
       width: 100%;
@@ -519,16 +587,14 @@
       overflow: hidden;
       background: #1e1b4b;
     }
+
     .praise-thumb-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.3s ease;
     }
-    .praise-card:hover .praise-thumb-wrap img {
-      transform: scale(1.05);
-    }
+
     .praise-play-badge {
       position: absolute;
       right: 5px;
@@ -538,11 +604,11 @@
       border-radius: 50%;
       background: linear-gradient(135deg, rgba(236, 72, 153, 0.95), rgba(124, 58, 237, 0.95));
       border: 1.5px solid rgba(255, 255, 255, 0.92);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
     .praise-play-badge::after {
       content: '';
       margin-left: 1px;
@@ -552,6 +618,7 @@
       border-width: 3.5px 0 3.5px 6.5px;
       border-color: transparent transparent transparent #ffffff;
     }
+
     .praise-caption {
       padding: 7px 5px;
       font-size: 10.5px;
@@ -561,21 +628,19 @@
       background: linear-gradient(180deg, #ffffff 0%, #faf5ff 100%);
       letter-spacing: -0.4px;
       line-height: 1.25;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
+      max-height: 33px;
       overflow: hidden;
       word-break: keep-all;
     }
 
-    /* ✨ 코드 내장형 디즈니 외울말씀 카드 */
+    /* 코드 내장형 디즈니 외울말씀 카드 */
     .embedded-verse-card {
       position: relative;
       width: 100%;
-      min-height: 360px;
+      min-height: 340px;
       border-radius: 20px;
       margin-bottom: 16px;
-      padding: 36px 22px;
+      padding: 34px 20px;
       background:
         radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 32%),
         radial-gradient(circle at 82% 24%, rgba(255, 249, 196, 0.75) 0%, rgba(255, 249, 196, 0) 34%),
@@ -589,27 +654,497 @@
       text-align: center;
       overflow: hidden;
     }
-    .embedded-verse-card::before {
-      content: '✦';
-      position: absolute;
-      top: 14px;
-      left: 18px;
-      font-size: 20px;
-      color: #fef08a;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.95);
-    }
-    .embedded-verse-card::after {
-      content: '✧';
-      position: absolute;
-      bottom: 14px;
-      right: 18px;
-      font-size: 22px;
-      color: #ffffff;
-      text-shadow: 0 0 12px rgba(253, 224, 71, 0.95);
-    }
+
     .embedded-verse-text {
       position: relative;
       z-index: 1;
       font-family: 'Gaegu', 'Noto Sans KR', cursive, sans-serif;
       font-size: 24px;
-      font-weight: 70
+      font-weight: 700;
+      line-height: 1.65;
+      color: #261b4c;
+      word-break: keep-all;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 10px rgba(255, 255, 255, 0.65);
+    }
+
+    .embedded-verse-ref {
+      margin-top: 12px;
+      display: block;
+      font-size: 20px;
+      color: #4c1d95;
+    }
+
+    footer {
+      margin-top: 34px;
+      text-align: center;
+      font-size: 12px;
+      color: #8b5cf6;
+      font-weight: 700;
+      opacity: 0.8;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 100;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      max-width: 500px;
+      width: 100%;
+      padding: 28px;
+      border-radius: 30px;
+      max-height: 85vh;
+      overflow-y: auto;
+      border: 4px solid #a78bfa;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 14px;
+    }
+
+    .modal-header strong {
+      font-size: 18px;
+      font-weight: 900;
+      color: #5b21b6;
+    }
+
+    .close-btn {
+      background: #f3e8ff;
+      color: #7e22ce;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    .modal-content img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 14px;
+      display: block;
+      border: 2px solid #ede9fe;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="bg.jpg" alt="배너" class="top-banner">
+
+    <span class="badge">✨ 초등2부 소식 전합니다!</span>
+    <div class="info-box">
+      <ul>
+        <li>• <strong>1. 성경골든벨:</strong> <span>11/29 아래 연습하기 버튼 Go Go</span></li>
+        <li>• <strong>2. 하반기 제자훈련:</strong> <span>11/8~12/6(주일) 수료 시 국내비전트립 참가자격 부여</span></li>
+      </ul>
+    </div>
+
+    <!-- 대표기도 순서 -->
+    <div class="prayer-box">
+      <div class="prayer-title">🙏 대표기도 순서</div>
+      <div id="prayerList" class="prayer-list"></div>
+    </div>
+
+    <!-- 디즈니 컬러조합 6개 액션 버튼 -->
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="openModal('verseModal')">외울 말씀 확인</button>
+      <button class="btn btn-secondary" onclick="openModal('quizModal')">복습퀴즈 확인</button>
+      <button class="btn btn-toon" onclick="openModal('toonModal')">성경카툰보기</button>
+      <button class="btn btn-home" onclick="openModal('homeModal')">가정에서 이뤄지는 하나님 나라</button>
+      <a href="https://notebooklm.link.google/NCNqHkn7f4xa" target="_blank" class="btn btn-accent">성경골든벨 연습하기</a>
+      <a href="https://vimeo.com/827276692?share=copy&fl=cl&fe=ci" target="_blank" class="btn btn-info">킹덤툰 46과</a>
+    </div>
+
+    <!-- 오픈형 캘린더 -->
+    <div class="calendar-section">
+      <div class="calendar-open-header">
+        <span>📅 11월 · 12월 초등2부 일정</span>
+      </div>
+
+      <div id="calendarContent" class="calendar-content-wrap">
+        <div class="cal-tabs">
+          <button class="cal-tab-btn active" onclick="switchCal('nov')">🍁 11월 일정</button>
+          <button class="cal-tab-btn" onclick="switchCal('dec')">🎄 12월 일정</button>
+        </div>
+
+        <!-- 11월 캘린더 -->
+        <div id="calNov" class="calendar-container active">
+          <div class="calendar-header-title">2026년 11월 초등2부 일정</div>
+          <table class="calendar-table">
+            <thead>
+              <tr>
+                <th>주일</th><th>월~목</th><th>금</th><th>토</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="day-num">1</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">2~5일</span></td>
+                <td><span class="day-num">6</span></td>
+                <td><span class="day-num">7</span><span class="cal-badge bg-purple">MZ 전도(1차)</span></td>
+              </tr>
+              <tr>
+                <td><span class="day-num">8</span><span class="cal-badge bg-pink">제자훈련①</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">9~12일</span></td>
+                <td><span class="day-num">13</span></td>
+                <td><span class="day-num">14</span><span class="cal-badge bg-purple">MZ 전도(2차)</span></td>
+              </tr>
+              <tr>
+                <td><span class="day-num">15</span><span class="cal-badge bg-yellow">어와나</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">16~19일</span></td>
+                <td><span class="day-num">20</span></td>
+                <td><span class="day-num">21</span><span class="cal-badge bg-green">전라어린이대회</span></td>
+              </tr>
+              <tr>
+                <td><span class="day-num">22</span><span class="cal-badge bg-pink">제자훈련②</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">23~26일</span></td>
+                <td><span class="day-num">27</span></td>
+                <td><span class="day-num">28</span></td>
+              </tr>
+              <tr>
+                <td><span class="day-num">29</span><span class="cal-badge bg-pink">제자훈련③</span><span class="cal-badge bg-yellow">성경골든벨</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">30일</span></td>
+                <td></td><td></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="schedule-summary">
+            <div class="schedule-summary-title">📌 11월 주요 일정 요약</div>
+            <div class="schedule-row"><span class="s-date">~11/15 (주일)</span><span class="s-desc">어와나 (오후 1:30 ~ 3:30)</span></div>
+            <div class="schedule-row"><span class="s-date">11/7·14 (토)</span><span class="s-desc">MZ 전도 (오후 2시 ~ 4:00)</span></div>
+            <div class="schedule-row"><span class="s-date">11/8 ~ 12/6</span><span class="s-desc">하반기 제자훈련 (오전 11:30, 4층 미술실)</span></div>
+            <div class="schedule-row"><span class="s-date">11/21 (토)</span><span class="s-desc">전라어린이대회 (오후 1:00 ~ 5:00)</span></div>
+            <div class="schedule-row"><span class="s-date">11/29 (주일)</span><span class="s-desc">성경골든벨</span></div>
+          </div>
+        </div>
+
+        <!-- 12월 캘린더 (주일 | 월~수 | 목 | 금 | 토) -->
+        <div id="calDec" class="calendar-container">
+          <div class="calendar-header-title">2026년 12월 초등2부 일정</div>
+          <table class="calendar-table">
+            <thead>
+              <tr>
+                <th>주일</th><th>월~수</th><th>목</th><th>금</th><th>토</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="day-num"></span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">1~2일</span></td>
+                <td><span class="day-num">3</span></td>
+                <td><span class="day-num">4</span></td>
+                <td><span class="day-num">5</span></td>
+              </tr>
+              <tr>
+                <td><span class="day-num">6</span><span class="cal-badge bg-pink">제자훈련④</span><span class="cal-badge bg-yellow">종료</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">7~9일</span></td>
+                <td><span class="day-num">10</span></td>
+                <td><span class="day-num">11</span></td>
+                <td><span class="day-num">12</span></td>
+              </tr>
+              <tr>
+                <td><span class="day-num">13</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">14~16일</span></td>
+                <td><span class="day-num">17</span></td>
+                <td><span class="day-num">18</span></td>
+                <td><span class="day-num">19</span></td>
+              </tr>
+              <tr>
+                <td><span class="day-num">20</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">21~23일</span></td>
+                <td><span class="day-num">24</span><span class="cal-badge bg-pink">성탄저녁송</span></td>
+                <td><span class="day-num">25</span><span class="cal-badge bg-red">성탄감사예배</span></td>
+                <td><span class="day-num">26</span></td>
+              </tr>
+              <tr>
+                <td><span class="day-num">27</span><span class="cal-badge bg-green">달란트잔치</span><span class="cal-badge bg-purple">수료식</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">28~30일</span></td>
+                <td><span class="day-num">31</span></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="schedule-summary">
+            <div class="schedule-summary-title">📌 12월 주요 일정 요약</div>
+            <div class="schedule-row"><span class="s-date">~ 12/6 (주)</span><span class="s-desc">하반기 제자훈련 종료 (4회차)</span></div>
+            <div class="schedule-row"><span class="s-date">12/24 (목)</span><span class="s-desc">성탄저녁송</span></div>
+            <div class="schedule-row"><span class="s-date">12/25 (금)</span><span class="s-desc">성탄감사예배 (오전 11:00)</span></div>
+            <div class="schedule-row"><span class="s-date">12/27 (주)</span><span class="s-desc">달란트잔치 · 수료식</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ 이번 주 미션 체크리스트</h3>
+      <label><input type="checkbox"> <span>성경책 챙기기</span></label>
+      <label><input type="checkbox"> <span>헌금 준비하기</span></label>
+      <label><input type="checkbox"> <span>성경읽기 (5장 이상, 초등2부 기간 1독 기준 6장 이상)</span></label>
+      <label><input type="checkbox"> <span>성경암송</span></label>
+    </div>
+
+    <!-- 컴팩트 4열 한 줄 찬양율동 영상보기 -->
+    <div class="praise-section">
+      <div class="praise-header">
+        <span class="praise-title">찬양율동 영상보기</span>
+        <span class="praise-subtitle">함께 찬양해요</span>
+      </div>
+      <div class="praise-grid">
+        <a href="https://youtu.be/GQsdBOODC-Y?si=3wAsm3aJyMGByj2T" target="_blank" class="praise-card" title="01 함께 세워가요">
+          <div class="praise-thumb-wrap">
+            <img src="https://img.youtube.com/vi/GQsdBOODC-Y/hqdefault.jpg" alt="01 함께 세워가요" loading="lazy">
+            <span class="praise-play-badge" aria-hidden="true"></span>
+          </div>
+          <div class="praise-caption">01 함께 세워가요</div>
+        </a>
+
+        <a href="https://youtu.be/o0EPjBekqQ8?si=2-AKcnM_t5nmv0ES" target="_blank" class="praise-card" title="05 우리들은 하나잖아">
+          <div class="praise-thumb-wrap">
+            <img src="https://img.youtube.com/vi/o0EPjBekqQ8/hqdefault.jpg" alt="05 우리들은 하나잖아" loading="lazy">
+            <span class="praise-play-badge" aria-hidden="true"></span>
+          </div>
+          <div class="praise-caption">05 우리들은 하나잖아</div>
+        </a>
+
+        <a href="https://youtu.be/VrByG5DmdYI?si=nQ2Wb8X_pigdYn8N" target="_blank" class="praise-card" title="13 하나님이 세상을 사랑하사">
+          <div class="praise-thumb-wrap">
+            <img src="https://img.youtube.com/vi/VrByG5DmdYI/hqdefault.jpg" alt="13 하나님이 세상을 사랑하사" loading="lazy">
+            <span class="praise-play-badge" aria-hidden="true"></span>
+          </div>
+          <div class="praise-caption">13 하나님이 세상을 사랑하사</div>
+        </a>
+
+        <a href="https://youtu.be/dpSjUpR3m5Y?si=2hOVy-j4aGJXwmhv" target="_blank" class="praise-card" title="18 내 안에 예수님 계시네">
+          <div class="praise-thumb-wrap">
+            <img src="https://img.youtube.com/vi/dpSjUpR3m5Y/hqdefault.jpg" alt="18 내 안에 예수님 계시네" loading="lazy">
+            <span class="praise-play-badge" aria-hidden="true"></span>
+          </div>
+          <div class="praise-caption">18 내 안에 예수님 계시네</div>
+        </a>
+      </div>
+    </div>
+
+    <a href="https://www.youtube.com/live/4--rLJtcWbk?si=vcHoFxtYc6g-XOFP" target="_blank" class="btn btn-live">🔴 온라인 예배 (11/29)</a>
+
+    <footer>© 2026 yeseuly. All Rights Reserved.</footer>
+  </div>
+
+  <!-- 외울말씀 모달 -->
+  <div id="verseModal" class="modal" onclick="closeOutside(event, 'verseModal')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <strong>📖 외울 말씀 & 챈트 연습장</strong>
+        <button class="close-btn" onclick="closeModal('verseModal')">닫기 ✕</button>
+      </div>
+
+      <div class="embedded-verse-card">
+        <div class="embedded-verse-text">
+          너희는 세상의 소금이니<br>
+          소금이 만일 그 맛을 잃으면<br>
+          무엇으로 짜게 하리요<br>
+          후에는 아무 쓸 데 없어<br>
+          다만 밖에 버려져<br>
+          사람에게 밟힐 뿐이니라
+          <span class="embedded-verse-ref">(마태복음 5장 13절)</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <a href="https://vimeo.com/777285219?share=copy&fl=cl&fe=ci" target="_blank" style="display: block; width: 100%; background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; padding: 14px; border-radius: 15px; text-align: center; font-size: 16px; font-weight: 900; text-decoration: none;">
+          🎵 신나는 챈트 영상 보러가기 ✨
+        </a>
+      </div>
+
+      <div style="background: #faf5ff; padding: 20px; border-radius: 20px; border: 2px solid #e9d5ff;">
+        <label for="practiceInput" style="display: block; font-size: 15px; font-weight: 900; color: #581c87; margin-bottom: 12px;">
+          ✍️ 위 말씀을 보고 아래 칸에 예쁘게 적어보세요!
+        </label>
+        <textarea id="practiceInput" rows="3" placeholder="여기에 말씀을 써 보세요..." style="width: 100%; padding: 16px; border: 2px solid #d8b4fe; border-radius: 15px; font-size: 16px; font-family: inherit; resize: none; outline: none; background: white;"></textarea>
+
+        <button type="button" onclick="checkPractice()" style="margin-top: 12px; width: 100%; background: linear-gradient(135deg, #a78bfa, #7e22ce); color: white; border: none; padding: 16px; border-radius: 15px; font-size: 16px; font-weight: 900; cursor: pointer;">
+          따라 쓰기 완료! ✨
+        </button>
+
+        <div id="practiceResult" style="margin-top: 12px; font-size: 15px; font-weight: 900; text-align: center; color: #10b981; display: none;">
+          참 잘했어요! 하나님의 말씀이 마음에 쏙쏙 새겨졌어요! 🎉
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 퀴즈 모달 -->
+  <div id="quizModal" class="modal" onclick="closeOutside(event, 'quizModal')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <strong>✏️ 복습 퀴즈</strong>
+        <button class="close-btn" onclick="closeModal('quizModal')">닫기 ✕</button>
+      </div>
+      <img src="quiz01.png" alt="퀴즈 1">
+      <img src="quiz02.png" alt="퀴즈 2">
+    </div>
+  </div>
+
+  <!-- 성경카툰 모달 -->
+  <div id="toonModal" class="modal" onclick="closeOutside(event, 'toonModal')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <strong>🎨 성경카툰보기</strong>
+        <button class="close-btn" onclick="closeModal('toonModal')">닫기 ✕</button>
+      </div>
+      <img src="toon01.jpg" alt="성경카툰 1">
+      <img src="toon02.jpg" alt="성경카툰 2">
+      <img src="toon03.jpg" alt="성경카툰 3">
+      <img src="toon04.jpg" alt="성경카툰 4">
+    </div>
+  </div>
+
+  <!-- 가정에서 이뤄지는 하나님 나라 모달 -->
+  <div id="homeModal" class="modal" onclick="closeOutside(event, 'homeModal')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <strong>🏡 가정에서 이뤄지는 하나님 나라</strong>
+        <button class="close-btn" onclick="closeModal('homeModal')">닫기 ✕</button>
+      </div>
+      <img src="home01.png" alt="홈레터 1">
+      <img src="home02.png" alt="홈레터 2">
+    </div>
+  </div>
+
+  <script>
+    const prayerData = [
+      { dateStr: '2026-11-22', label: '11/22', name: '이준우 친구' },
+      { dateStr: '2026-11-29', label: '11/29', name: '5-3 김소율 친구' },
+      { dateStr: '2026-12-06', label: '12/6',  name: '5-3 김윤하 친구' }
+    ];
+
+    function renderPrayerList() {
+      const container = document.getElementById('prayerList');
+      if (!container) return;
+
+      const now = new Date();
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+      const pastItems = [];
+      const upcomingItems = [];
+
+      prayerData.forEach(item => {
+        const [y, m, d] = item.dateStr.split('-').map(Number);
+        const itemDate = new Date(y, m - 1, d);
+        if (itemDate < today) {
+          pastItems.push(item);
+        } else {
+          upcomingItems.push(item);
+        }
+      });
+
+      const displayList = [];
+      if (pastItems.length > 0) {
+        displayList.push({ ...pastItems[pastItems.length - 1], status: 'past' });
+      }
+      upcomingItems.forEach((item, idx) => {
+        displayList.push({ ...item, status: idx === 0 ? 'next' : 'upcoming' });
+      });
+
+      container.innerHTML = displayList.map(item => {
+        if (item.status === 'past') {
+          return `
+            <div class="prayer-item past">
+              <span class="prayer-date">${item.label}</span>
+              <div class="prayer-name-wrap">
+                <span class="prayer-name">${item.name}</span>
+              </div>
+            </div>
+          `;
+        }
+        if (item.status === 'next') {
+          return `
+            <div class="prayer-item next-up">
+              <span class="prayer-date">${item.label}</span>
+              <div class="prayer-name-wrap">
+                <span class="next-badge">다음 차례 ✨</span>
+                <span class="prayer-name">${item.name}</span>
+              </div>
+            </div>
+          `;
+        }
+        return `
+          <div class="prayer-item">
+            <span class="prayer-date">${item.label}</span>
+            <div class="prayer-name-wrap">
+              <span class="prayer-name">${item.name}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    renderPrayerList();
+
+    function switchCal(month) {
+      const btns = document.querySelectorAll('.cal-tab-btn');
+      btns.forEach(b => b.classList.remove('active'));
+
+      document.getElementById('calNov').classList.remove('active');
+      document.getElementById('calDec').classList.remove('active');
+
+      if (month === 'nov') {
+        document.getElementById('calNov').classList.add('active');
+        if (btns[0]) btns[0].classList.add('active');
+      } else {
+        document.getElementById('calDec').classList.add('active');
+        if (btns[1]) btns[1].classList.add('active');
+      }
+    }
+
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+      document.body.style.overflow = '';
+      if (id === 'verseModal') {
+        document.getElementById('practiceInput').value = '';
+        document.getElementById('practiceResult').style.display = 'none';
+      }
+    }
+
+    function closeOutside(event, id) {
+      if (event.target.id === id) {
+        closeModal(id);
+      }
+    }
+
+    function checkPractice() {
+      const inputVal = document.getElementById('practiceInput').value.trim();
+      const resultDiv = document.getElementById('practiceResult');
+      if (inputVal === '') {
+        alert('말씀을 먼저 적어보세요!');
+        return;
+      }
+      resultDiv.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
