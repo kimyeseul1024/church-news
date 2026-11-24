@@ -122,7 +122,7 @@
       gap: 8px;
     }
     .prayer-item {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.9);
       padding: 10px 14px;
       border-radius: 12px;
       display: flex;
@@ -130,6 +130,7 @@
       align-items: center;
       font-size: 14px;
       border: 1px solid #fde68a;
+      transition: all 0.2s ease;
     }
     .prayer-date {
       font-weight: 900;
@@ -139,9 +140,55 @@
       border-radius: 20px;
       font-size: 13px;
     }
+    .prayer-name-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
     .prayer-name {
       font-weight: 700;
       color: #451a03;
+    }
+
+    /* 지난 차례 (가장 최근 1명 음영 처리) */
+    .prayer-item.past {
+      background: rgba(241, 245, 249, 0.75);
+      border-color: #e2e8f0;
+      opacity: 0.6;
+    }
+    .prayer-item.past .prayer-date {
+      background: #e2e8f0;
+      color: #64748b;
+    }
+    .prayer-item.past .prayer-name {
+      color: #64748b;
+      text-decoration: line-through;
+    }
+
+    /* 다음 차례 강조 스타일 */
+    .prayer-item.next-up {
+      background: #ffffff;
+      border: 2.5px solid #f59e0b;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.22);
+      transform: scale(1.01);
+    }
+    .prayer-item.next-up .prayer-date {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #ffffff;
+    }
+    .prayer-item.next-up .prayer-name {
+      font-weight: 900;
+      font-size: 15px;
+      color: #78350f;
+    }
+    .next-badge {
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fcd34d;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 2px 8px;
+      border-radius: 12px;
     }
 
     /* 🔲 액션 버튼 그룹 스타일 */
@@ -172,6 +219,8 @@
       transition: all 0.3s ease;
       word-break: keep-all;
       line-height: 1.35;
+      position: relative;
+      overflow: hidden;
     }
     .btn:hover { transform: translateY(-3px); }
 
@@ -186,7 +235,43 @@
     .btn-secondary { background: linear-gradient(135deg, #34d399, #059669); }
     .btn-toon { background: linear-gradient(135deg, #f472b6, #db2777); }
     .btn-home { background: linear-gradient(135deg, #fb923c, #ea580c); }
-    .btn-accent { background: linear-gradient(135deg, #fbbf24, #d97706); }
+
+    /* ✨ 번쩍번쩍 골든벨 연습하기 버튼 */
+    .btn-accent {
+      background: linear-gradient(135deg, #facc15, #f59e0b, #ea580c);
+      border: 2px solid #fef08a;
+      animation: pulseGlow 1.5s infinite alternate;
+    }
+    .btn-accent::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -75%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.75) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(25deg);
+      animation: shimmerSweep 2.2s infinite;
+      pointer-events: none;
+    }
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 6px 15px rgba(245, 158, 11, 0.35), 0 0 8px rgba(254, 240, 138, 0.5);
+      }
+      100% {
+        box-shadow: 0 8px 24px rgba(245, 158, 11, 0.8), 0 0 18px rgba(254, 240, 138, 0.95);
+      }
+    }
+    @keyframes shimmerSweep {
+      0% { left: -75%; }
+      55%, 100% { left: 135%; }
+    }
+
     .btn-info { background: linear-gradient(135deg, #38bdf8, #0284c7); }
 
     /* 📅 캘린더 아코디언 스타일 */
@@ -356,7 +441,7 @@
     }
     .schedule-row:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
     .s-date {
-      min-width: 75px;
+      min-width: 95px;
       font-weight: 700;
       color: #4f46e5;
     }
@@ -388,6 +473,7 @@
       line-height: 1.5;
       color: #a16207;
     }
+    .checklist label:last-child { margin-bottom: 0; }
     .checklist input {
       width: 24px; height: 24px;
       margin-top: 2px;
@@ -462,29 +548,15 @@
     <span class="badge">✨ 초등2부 소식 전합니다! </span>
     <div class="info-box">
       <ul>
-        <li>• <strong>1. 제46회 전라어린이대회:</strong> <span>잘 마쳤습니다. 모두 수고하였습니다.</span></li>
-        <li>• <strong>2. 하반기 제자훈련:</strong> <span>11/8~29(주일, 4회) 수료 시 국내비전트립 참가자격 부여</span></li>
-        <li>• <strong>3. 11/29(주) 예배 후 성경골든벨:</strong> <span>아래 연습하기 고고</span></li>
+        <li>• <strong>1. 성경골든벨:</strong> <span>11/29 아래 연습하기 버튼 Go Go</span></li>
+        <li>• <strong>2. 하반기 제자훈련:</strong> <span>11/8~12/6(주일) 수료 시 국내비전트립 참가자격 부여</span></li>
       </ul>
     </div>
 
-    <!-- 🙏 대표기도 순서 -->
+    <!-- 🙏 대표기도 순서 (접속 날짜 기준 자동 정렬/강조) -->
     <div class="prayer-box">
       <div class="prayer-title">🙏 대표기도 순서</div>
-      <div class="prayer-list">
-        <div class="prayer-item">
-          <span class="prayer-date">11/22</span>
-          <span class="prayer-name">이준우 친구</span>
-        </div>
-        <div class="prayer-item">
-          <span class="prayer-date">11/29</span>
-          <span class="prayer-name">5-3 김소율 친구</span>
-        </div>
-        <div class="prayer-item">
-          <span class="prayer-date">12/6</span>
-          <span class="prayer-name">5-3 김윤하 친구</span>
-        </div>
-      </div>
+      <div id="prayerList" class="prayer-list"></div>
     </div>
 
     <!-- 🔲 액션 버튼 그룹 -->
@@ -502,7 +574,7 @@
         <span>🏡</span> 가정에서 이뤄지는 하나님 나라
       </button>
       <a href="https://notebooklm.link.google/NCNqHkn7f4xa" target="_blank" class="btn btn-accent">
-        <span>🔔</span> 11/29 골든벨
+        <span>🔔</span> 성경골든벨 연습하기 ✨
       </a>
       <a href="https://vimeo.com/827276630" target="_blank" class="btn btn-info">
         <span>🎬</span> 킹덤툰 45과
@@ -557,7 +629,7 @@
                 <td><span class="day-num">28</span></td>
               </tr>
               <tr>
-                <td><span class="day-num">29</span><span class="cal-badge bg-pink">제자훈련④</span><span class="cal-badge bg-yellow">성경골든벨</span></td>
+                <td><span class="day-num">29</span><span class="cal-badge bg-pink">제자훈련④</span><span class="cal-badge bg-yellow">성경퀴즈대회</span></td>
                 <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">30일</span></td>
                 <td></td><td></td>
               </tr>
@@ -568,9 +640,9 @@
             <div class="schedule-summary-title">📌 11월 주요 일정 요약</div>
             <div class="schedule-row"><span class="s-date">~11/15 (주일)</span><span class="s-desc">어와나 (오후 1:30 ~ 3:30)</span></div>
             <div class="schedule-row"><span class="s-date">11/7·14 (토)</span><span class="s-desc">MZ 전도 (오후 2시 ~ 4:00)</span></div>
-            <div class="schedule-row"><span class="s-date">11/8, 15, 22, 29</span><span class="s-desc">제자훈련 ①~④ (오전 11:30, 4층 미술실)</span></div>
+            <div class="schedule-row"><span class="s-date">11/8 ~ 12/6</span><span class="s-desc">하반기 제자훈련 (오전 11:30, 4층 미술실)</span></div>
             <div class="schedule-row"><span class="s-date">11/21 (토)</span><span class="s-desc">전라어린이대회 (오후 1:00 ~ 5:00)</span></div>
-            <div class="schedule-row"><span class="s-date">11/29 (주일)</span><span class="s-desc">성경 골든벨</span></div>
+            <div class="schedule-row"><span class="s-date">11/29 (주일)</span><span class="s-desc">성경퀴즈대회 (성경 골든벨)</span></div>
           </div>
         </div>
 
@@ -580,48 +652,50 @@
           <table class="calendar-table">
             <thead>
               <tr>
-                <th>주일</th><th>월~목</th><th>금</th><th>토</th>
+                <th>주일</th><th>월~수</th><th>목</th><th>금·토</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><span class="day-num"></span></td>
-                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">1~3일</span></td>
-                <td><span class="day-num">4</span></td>
-                <td><span class="day-num">5</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">1~2일</span></td>
+                <td><span class="day-num">3</span></td>
+                <td><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">4~5일</span></td>
               </tr>
               <tr>
-                <td><span class="day-num">6</span></td>
-                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">7~10일</span></td>
-                <td><span class="day-num">11</span></td>
-                <td><span class="day-num">12</span></td>
+                <td><span class="day-num">6</span><span class="cal-badge bg-yellow">제자훈련 종료</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">7~9일</span></td>
+                <td><span class="day-num">10</span></td>
+                <td><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">11~12일</span></td>
               </tr>
               <tr>
-                <td><span class="day-num">13</span><span class="cal-badge bg-green">달란트 행사</span></td>
-                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">14~17일</span></td>
-                <td><span class="day-num">18</span></td>
-                <td><span class="day-num">19</span></td>
+                <td><span class="day-num">13</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">14~16일</span></td>
+                <td><span class="day-num">17</span></td>
+                <td><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">18~19일</span></td>
               </tr>
               <tr>
-                <td><span class="day-num">20</span><span class="cal-badge bg-blue">6학년(중등부)</span></td>
-                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">21~24일</span></td>
-                <td><span class="day-num" style="color:#ef4444;">25</span><span class="cal-badge bg-red">성탄감사예배</span></td>
-                <td><span class="day-num">26</span></td>
+                <td><span class="day-num">20</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">21~23일</span></td>
+                <td><span class="day-num">24</span><span class="cal-badge bg-pink">성탄저녁송</span></td>
+                <td><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">25~26일</span></td>
               </tr>
               <tr>
-                <td><span class="day-num">27</span><span class="cal-badge bg-purple">초등2부 수료식</span></td>
-                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">28~31일</span></td>
-                <td></td><td></td>
+                <td><span class="day-num">27</span><span class="cal-badge bg-green">달란트잔치</span><span class="cal-badge bg-purple">수료식</span></td>
+                <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">28~30일</span></td>
+                <td><span class="day-num">31</span></td>
+                <td></td>
               </tr>
             </tbody>
           </table>
 
           <div class="schedule-summary">
             <div class="schedule-summary-title">📌 12월 주요 일정 요약</div>
-            <div class="schedule-row"><span class="s-date">12/13 (주일)</span><span class="s-desc">달란트 행사</span></div>
-            <div class="schedule-row"><span class="s-date">12/20 (주일)</span><span class="s-desc">6학년(중등부예배)</span></div>
-            <div class="schedule-row"><span class="s-date">12/25 (금)</span><span class="s-desc">성탄감사예배</span></div>
-            <div class="schedule-row"><span class="s-date">12/27 (주일)</span><span class="s-desc">초등2부 수료식</span></div>
+            <div class="schedule-row"><span class="s-date">~ 12/6 (주)</span><span class="s-desc">하반기 제자훈련 종료</span></div>
+            <div class="schedule-row"><span class="s-date">12/24 (목)</span><span class="s-desc">성탄저녁송</span></div>
+            <div class="schedule-row"><span class="s-date">12/27 (주)</span><span class="s-desc">달란트잔치</span></div>
+            <div class="schedule-row"><span class="s-date">12/27 (주)</span><span class="s-desc">수료식</span></div>
+            <div class="schedule-row"><span class="s-date">11/29 (주)</span><span class="s-desc">성경퀴즈대회</span></div>
           </div>
         </div>
       </div>
@@ -630,6 +704,7 @@
     <div class="checklist">
       <h3>✅ 이번 주 미션 체크리스트</h3>
       <label><input type="checkbox"> <span>성경책 챙기기</span></label>
+      <label><input type="checkbox"> <span>헌금 준비하기</span></label>
       <label><input type="checkbox"> <span>성경읽기 (5장 이상, 초등2부 기간 1독 기준 6장 이상)</span></label>
       <label><input type="checkbox"> <span>성경암송</span></label>
     </div>
@@ -711,6 +786,74 @@
   </div>
 
   <script>
+    // 🙏 대표기도 순서 데이터 (날짜순 입력)
+    const prayerData = [
+      { dateStr: '2026-11-22', label: '11/22', name: '이준우 친구' },
+      { dateStr: '2026-11-29', label: '11/29', name: '5-3 김소율 친구' },
+      { dateStr: '2026-12-06', label: '12/6',  name: '5-3 김윤하 친구' }
+    ];
+
+    function renderPrayerList() {
+      const container = document.getElementById('prayerList');
+      const now = new Date();
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+      const pastItems = [];
+      const upcomingItems = [];
+
+      prayerData.forEach(item => {
+        const [y, m, d] = item.dateStr.split('-').map(Number);
+        const itemDate = new Date(y, m - 1, d);
+        if (itemDate < today) {
+          pastItems.push(item);
+        } else {
+          upcomingItems.push(item);
+        }
+      });
+
+      const displayList = [];
+      if (pastItems.length > 0) {
+        displayList.push({ ...pastItems[pastItems.length - 1], status: 'past' });
+      }
+      upcomingItems.forEach((item, idx) => {
+        displayList.push({ ...item, status: idx === 0 ? 'next' : 'upcoming' });
+      });
+
+      container.innerHTML = displayList.map(item => {
+        if (item.status === 'past') {
+          return `
+            <div class="prayer-item past">
+              <span class="prayer-date">${item.label}</span>
+              <div class="prayer-name-wrap">
+                <span class="prayer-name">${item.name}</span>
+              </div>
+            </div>
+          `;
+        }
+        if (item.status === 'next') {
+          return `
+            <div class="prayer-item next-up">
+              <span class="prayer-date">${item.label}</span>
+              <div class="prayer-name-wrap">
+                <span class="next-badge">다음 차례 ✨</span>
+                <span class="prayer-name">${item.name}</span>
+              </div>
+            </div>
+          `;
+        }
+        return `
+          <div class="prayer-item">
+            <span class="prayer-date">${item.label}</span>
+            <div class="prayer-name-wrap">
+              <span class="prayer-name">${item.name}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    renderPrayerList();
+
     function toggleCalendar() {
       const btn = document.querySelector('.calendar-toggle-btn');
       const content = document.getElementById('calendarContent');
