@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://kimyeseul1024.github.io/church-news/">
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Noto+Sans+KR:wght@400;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
 
     * {
       box-sizing: border-box;
@@ -232,31 +232,26 @@
       margin-top: 12px;
     }
 
-    /* 1. 외울 말씀 확인 - 신데렐라 매지컬 블루 */
     .btn-primary {
       background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 55%, #2563eb 100%);
       box-shadow: 0 8px 18px rgba(59, 130, 246, 0.28);
     }
 
-    /* 2. 복습퀴즈 확인 - 라푼젤 로열 라벤더 */
     .btn-secondary {
       background: linear-gradient(135deg, #c084fc 0%, #a855f7 55%, #7e22ce 100%);
       box-shadow: 0 8px 18px rgba(168, 85, 247, 0.28);
     }
 
-    /* 3. 성경카툰보기 - 오로라 페어리 로즈핑크 */
     .btn-toon {
       background: linear-gradient(135deg, #f472b6 0%, #ec4899 55%, #db2777 100%);
       box-shadow: 0 8px 18px rgba(236, 72, 153, 0.28);
     }
 
-    /* 4. 가정에서 이뤄지는 하나님 나라 - 선셋 코랄 & 골드피치 */
     .btn-home {
       background: linear-gradient(135deg, #fb923c 0%, #f97316 55%, #ea580c 100%);
       box-shadow: 0 8px 18px rgba(249, 115, 22, 0.28);
     }
 
-    /* 5. 성경골든벨 연습하기 - 벨 로열 골드 & 스파클 글로우 */
     .btn-accent {
       background: linear-gradient(270deg, #fde047, #facc15, #fb923c, #f472b6, #fde047);
       background-size: 350% 350%;
@@ -281,7 +276,6 @@
       }
     }
 
-    /* 6. 킹덤툰 46과 - 네버랜드 에메랄드 민트 */
     .btn-info {
       background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 55%, #0d9488 100%);
       box-shadow: 0 8px 18px rgba(20, 184, 166, 0.28);
@@ -633,45 +627,47 @@
       word-break: keep-all;
     }
 
-    /* 코드 내장형 디즈니 외울말씀 카드 */
+    /* 고딕체 가독성 강화 디즈니 외울말씀 카드 */
     .embedded-verse-card {
       position: relative;
       width: 100%;
-      min-height: 340px;
-      border-radius: 20px;
+      border-radius: 22px;
       margin-bottom: 16px;
-      padding: 34px 20px;
-      background:
-        radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 32%),
-        radial-gradient(circle at 82% 24%, rgba(255, 249, 196, 0.75) 0%, rgba(255, 249, 196, 0) 34%),
-        linear-gradient(165deg, #d8e8ff 0%, #e7dcff 38%, #fff3d6 74%, #ffe6f2 100%);
-      border: 2px solid #ede9fe;
-      box-shadow: inset 0 0 28px rgba(255, 255, 255, 0.7), 0 8px 20px rgba(124, 58, 237, 0.12);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      padding: 22px 16px;
+      background: linear-gradient(160deg, #e0f2fe 0%, #f3e8ff 52%, #fef9c3 100%);
+      border: 2px solid #c4b5fd;
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.12);
+    }
+
+    .embedded-verse-inner {
+      background: #ffffff;
+      border: 2px solid #ddd6fe;
+      border-radius: 18px;
+      padding: 22px 16px;
       text-align: center;
-      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(76, 29, 149, 0.06);
     }
 
     .embedded-verse-text {
-      position: relative;
-      z-index: 1;
-      font-family: 'Gaegu', 'Noto Sans KR', cursive, sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      line-height: 1.65;
-      color: #261b4c;
+      font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      font-size: 19px;
+      font-weight: 900;
+      line-height: 1.75;
+      color: #111827;
       word-break: keep-all;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 10px rgba(255, 255, 255, 0.65);
+      letter-spacing: -0.3px;
     }
 
     .embedded-verse-ref {
-      margin-top: 12px;
-      display: block;
-      font-size: 20px;
+      margin-top: 14px;
+      display: inline-block;
+      background: #ede9fe;
       color: #4c1d95;
+      font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      font-weight: 900;
+      padding: 6px 14px;
+      border-radius: 999px;
     }
 
     footer {
@@ -752,6 +748,7 @@
       <ul>
         <li>• <strong>1. 성경골든벨:</strong> <span>11/29 아래 연습하기 버튼 Go Go</span></li>
         <li>• <strong>2. 하반기 제자훈련:</strong> <span>11/8~12/6(주일) 수료 시 국내비전트립 참가자격 부여</span></li>
+        <li>• <strong>3. 달란트시장 및 수료식:</strong> <span>12월 27일 주일</span></li>
       </ul>
     </div>
 
@@ -957,19 +954,21 @@
       </div>
 
       <div class="embedded-verse-card">
-        <div class="embedded-verse-text">
-          너희는 세상의 소금이니<br>
-          소금이 만일 그 맛을 잃으면<br>
-          무엇으로 짜게 하리요<br>
-          후에는 아무 쓸 데 없어<br>
-          다만 밖에 버려져<br>
-          사람에게 밟힐 뿐이니라
+        <div class="embedded-verse-inner">
+          <div class="embedded-verse-text">
+            너희는 세상의 소금이니<br>
+            소금이 만일 그 맛을 잃으면<br>
+            무엇으로 짜게 하리요<br>
+            후에는 아무 쓸 데 없어<br>
+            다만 밖에 버려져<br>
+            사람에게 밟힐 뿐이니라
+          </div>
           <span class="embedded-verse-ref">(마태복음 5장 13절)</span>
         </div>
       </div>
 
       <div style="margin-bottom: 15px;">
-        <a href="https://vimeo.com/777285219?share=copy&fl=cl&fe=ci" target="_blank" style="display: block; width: 100%; background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; padding: 14px; border-radius: 15px; text-align: center; font-size: 16px; font-weight: 900; text-decoration: none;">
+        <a href="https://vimeo.com/777285277?share=copy&fl=cl&fe=ci" target="_blank" style="display: block; width: 100%; background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; padding: 14px; border-radius: 15px; text-align: center; font-size: 16px; font-weight: 900; text-decoration: none;">
           🎵 신나는 챈트 영상 보러가기 ✨
         </a>
       </div>
