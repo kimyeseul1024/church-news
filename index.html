@@ -35,10 +35,21 @@
       background: rgba(255, 255, 255, 0.94);
       max-width: 640px;
       width: 100%;
-      padding: 30px 20px;
+      padding: 22px 20px 30px;
       border-radius: 30px;
       box-shadow: 0 20px 50px rgba(124, 58, 237, 0.15);
       border: 3px solid #ffffff;
+    }
+
+    .last-updated {
+      text-align: right;
+      font-size: 11px;
+      font-weight: 700;
+      color: #7c3aed;
+      opacity: 0.78;
+      margin-bottom: 10px;
+      padding-right: 4px;
+      letter-spacing: -0.2px;
     }
 
     .top-banner {
@@ -90,6 +101,12 @@
       font-weight: 900;
       color: #6d28d9;
       margin-right: 4px;
+    }
+
+    .info-sub {
+      display: block;
+      margin-top: 2px;
+      padding-left: 14px;
     }
 
     /* 대표기도 순서 */
@@ -741,14 +758,19 @@
 <body>
 
   <div class="container">
+    <div class="last-updated">마지막 업데이트: 2026. 11. 28. (토) 12:30</div>
     <img src="bg.jpg" alt="배너" class="top-banner">
 
     <span class="badge">✨ 초등2부 소식 전합니다!</span>
     <div class="info-box">
       <ul>
         <li>• <strong>1. 성경골든벨:</strong> <span>11/29 아래 연습하기 버튼 Go Go</span></li>
-        <li>• <strong>2. 하반기 제자훈련:</strong> <span>11/8~12/6(주일) 수료 시 국내비전트립 참가자격 부여</span></li>
-        <li>• <strong>3. 달란트시장 및 수료식:</strong> <span>12월 27일 주일</span></li>
+        <li>
+          • <strong>2. 하반기 제자훈련:</strong> <span>~12/6(주일)까지 진행</span>
+          <span class="info-sub">12/13 수료식, 수료 시 국내비전트립 참가자격 부여</span>
+        </li>
+        <li>• <strong>3. 성경 1독 완료한 친구들 선생님께 알려주세요.</strong></li>
+        <li>• <strong>4. 달란트시장 및 수료식:</strong> <span>12월 27일 주일</span></li>
       </ul>
     </div>
 
@@ -850,14 +872,14 @@
                 <td><span class="day-num">5</span></td>
               </tr>
               <tr>
-                <td><span class="day-num">6</span><span class="cal-badge bg-pink">제자훈련④</span><span class="cal-badge bg-yellow">종료</span></td>
+                <td><span class="day-num">6</span><span class="cal-badge bg-pink">제자훈련④ · 종강</span></td>
                 <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">7~9일</span></td>
                 <td><span class="day-num">10</span></td>
                 <td><span class="day-num">11</span></td>
                 <td><span class="day-num">12</span></td>
               </tr>
               <tr>
-                <td><span class="day-num">13</span></td>
+                <td><span class="day-num">13</span><span class="cal-badge bg-purple">제자훈련 수료식</span></td>
                 <td class="weekday-col"><span class="day-num" style="font-weight:normal; font-size:11px; color:#64748b;">14~16일</span></td>
                 <td><span class="day-num">17</span></td>
                 <td><span class="day-num">18</span></td>
@@ -882,10 +904,11 @@
 
           <div class="schedule-summary">
             <div class="schedule-summary-title">📌 12월 주요 일정 요약</div>
-            <div class="schedule-row"><span class="s-date">~ 12/6 (주)</span><span class="s-desc">하반기 제자훈련 종료 (4회차)</span></div>
+            <div class="schedule-row"><span class="s-date">~ 12/6 (주)</span><span class="s-desc">하반기 제자훈련 종료 (4회차 · 종강)</span></div>
+            <div class="schedule-row"><span class="s-date">12/13 (주)</span><span class="s-desc">제자훈련 수료식</span></div>
             <div class="schedule-row"><span class="s-date">12/24 (목)</span><span class="s-desc">성탄저녁송</span></div>
             <div class="schedule-row"><span class="s-date">12/25 (금)</span><span class="s-desc">성탄감사예배 (오전 11:00)</span></div>
-            <div class="schedule-row"><span class="s-date">12/27 (주)</span><span class="s-desc">달란트잔치 · 수료식</span></div>
+            <div class="schedule-row"><span class="s-date">12/27 (주)</span><span class="s-desc">달란트시장 및 수료식</span></div>
           </div>
         </div>
       </div>
@@ -1013,137 +1036,9 @@
       <img src="toon02.jpg" alt="성경카툰 2">
       <img src="toon03.jpg" alt="성경카툰 3">
       <img src="toon04.jpg" alt="성경카툰 4">
+      <img src="toon05.jpg" alt="성경카툰 5">
     </div>
   </div>
 
   <!-- 가정에서 이뤄지는 하나님 나라 모달 -->
-  <div id="homeModal" class="modal" onclick="closeOutside(event, 'homeModal')">
-    <div class="modal-content">
-      <div class="modal-header">
-        <strong>🏡 가정에서 이뤄지는 하나님 나라</strong>
-        <button class="close-btn" onclick="closeModal('homeModal')">닫기 ✕</button>
-      </div>
-      <img src="home01.png" alt="홈레터 1">
-      <img src="home02.png" alt="홈레터 2">
-    </div>
-  </div>
-
-  <script>
-    const prayerData = [
-      { dateStr: '2026-11-22', label: '11/22', name: '이준우 친구' },
-      { dateStr: '2026-11-29', label: '11/29', name: '5-3 김소율 친구' },
-      { dateStr: '2026-12-06', label: '12/6',  name: '5-3 김윤하 친구' }
-    ];
-
-    function renderPrayerList() {
-      const container = document.getElementById('prayerList');
-      if (!container) return;
-
-      const now = new Date();
-      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-
-      const pastItems = [];
-      const upcomingItems = [];
-
-      prayerData.forEach(item => {
-        const [y, m, d] = item.dateStr.split('-').map(Number);
-        const itemDate = new Date(y, m - 1, d);
-        if (itemDate < today) {
-          pastItems.push(item);
-        } else {
-          upcomingItems.push(item);
-        }
-      });
-
-      const displayList = [];
-      if (pastItems.length > 0) {
-        displayList.push({ ...pastItems[pastItems.length - 1], status: 'past' });
-      }
-      upcomingItems.forEach((item, idx) => {
-        displayList.push({ ...item, status: idx === 0 ? 'next' : 'upcoming' });
-      });
-
-      container.innerHTML = displayList.map(item => {
-        if (item.status === 'past') {
-          return `
-            <div class="prayer-item past">
-              <span class="prayer-date">${item.label}</span>
-              <div class="prayer-name-wrap">
-                <span class="prayer-name">${item.name}</span>
-              </div>
-            </div>
-          `;
-        }
-        if (item.status === 'next') {
-          return `
-            <div class="prayer-item next-up">
-              <span class="prayer-date">${item.label}</span>
-              <div class="prayer-name-wrap">
-                <span class="next-badge">다음 차례 ✨</span>
-                <span class="prayer-name">${item.name}</span>
-              </div>
-            </div>
-          `;
-        }
-        return `
-          <div class="prayer-item">
-            <span class="prayer-date">${item.label}</span>
-            <div class="prayer-name-wrap">
-              <span class="prayer-name">${item.name}</span>
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    renderPrayerList();
-
-    function switchCal(month) {
-      const btns = document.querySelectorAll('.cal-tab-btn');
-      btns.forEach(b => b.classList.remove('active'));
-
-      document.getElementById('calNov').classList.remove('active');
-      document.getElementById('calDec').classList.remove('active');
-
-      if (month === 'nov') {
-        document.getElementById('calNov').classList.add('active');
-        if (btns[0]) btns[0].classList.add('active');
-      } else {
-        document.getElementById('calDec').classList.add('active');
-        if (btns[1]) btns[1].classList.add('active');
-      }
-    }
-
-    function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-      document.body.style.overflow = '';
-      if (id === 'verseModal') {
-        document.getElementById('practiceInput').value = '';
-        document.getElementById('practiceResult').style.display = 'none';
-      }
-    }
-
-    function closeOutside(event, id) {
-      if (event.target.id === id) {
-        closeModal(id);
-      }
-    }
-
-    function checkPractice() {
-      const inputVal = document.getElementById('practiceInput').value.trim();
-      const resultDiv = document.getElementById('practiceResult');
-      if (inputVal === '') {
-        alert('말씀을 먼저 적어보세요!');
-        return;
-      }
-      resultDiv.style.display = 'block';
-    }
-  </script>
-
-</body>
-</html>
+  <div id="homeModal" class="modal" onclick="closeOutside(event
